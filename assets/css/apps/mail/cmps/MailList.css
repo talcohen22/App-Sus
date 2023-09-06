@@ -1,1 +1,4 @@
-/* mail list */
+.mails-container{
+    flex-grow: 1;
+    border-collapse: collapse;
+}

@@ -1,6 +1,8 @@
+const { useNavigate} = ReactRouterDOM
 
 export function MailPreview({ email }) {
-    console.log(email);
+
+    const navigate = useNavigate()
 
     function getDateFormat() {
         const todayDate = new Date()
@@ -14,12 +16,16 @@ export function MailPreview({ email }) {
         return day + '/' + month + '/' + year
     }
 
-    return (
-        <tr >
-            <td>{email.from}</td>
-            <td>{email.subject}</td>
-            <td>{getDateFormat()}</td>
-        </tr>
+    function onGetMail(){
+        navigate(`/mail/${email.id}`)
+    }
 
+    const dyClass = email.isRead ? '' : 'bold'
+    return (
+            <tr onClick={onGetMail} className={dyClass}>
+                <td>{email.from}</td>
+                <td>{email.subject}</td>
+                <td>{getDateFormat()}</td>
+            </tr>
     )
 }

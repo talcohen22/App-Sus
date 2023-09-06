@@ -2,8 +2,6 @@ import { MailPreview } from './MailPreview.jsx'
 
 
 export function MailList({ emails }) {
-    console.log(emails);
-
     return (
         <React.Fragment>
             <table className="mails-container">

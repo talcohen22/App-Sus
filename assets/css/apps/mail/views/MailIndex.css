@@ -1,11 +1,12 @@
- .mail-container {
+ .mails-layout {
      display: flex;
-
-     font-family: 'google-sans-bold';
+     font-family: sans-serif;
+     /* font-weight: bold; */
+     /* font-family: 'google-sans-bold'; */
      font-size: 0.875rem;
  }
 
- .mail-container .features {
+ .mails-layout .features {
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -15,6 +16,10 @@
      width: 68px;
  }
 
- .mail-container .features i {
+ .mails-layout .features i {
      font-size: 15px;
+ }
+
+ .bold{
+    font-weight: bold;
  }
