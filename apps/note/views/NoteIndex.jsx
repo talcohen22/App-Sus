@@ -1,47 +1,28 @@
 import { NoteList } from '../cmps/NoteList.jsx'
+import { noteService } from '../../../services/note.service.js'
+import { NoteEdit } from '../cmps/NoteEdit.jsx'
+
+const { useState, useEffect } = React
 
 export function NoteIndex() {
-    const notes = [
-        {
-            id: 'n101',
-            createdAt: 1112222,
-            type: 'NoteTxt',
-            isPinned: true,
-            style: {
-                backgroundColor: '#00d',
-            },
-            info: {
-                txt: 'Fullstack Me Baby!',
-            },
-        },
-        {
-            id: 'n102',
-            type: 'NoteImg',
-            isPinned: false,
-            info: {
-                url: 'https://freesvg.org/img/food-maburger-royale.png',
-                title: 'Bobi and Me',
-            },
-            style: {
-                backgroundColor: '#00d',
-            },
-        },
-        {
-            id: 'n103',
-            type: 'NoteTodos',
-            isPinned: false,
-            info: {
-                title: 'Get my stuff together',
-                todos: [
-                    { txt: 'Driving license', doneAt: null },
-                    { txt: 'Coding power', doneAt: 187111111 },
-                ],
-            },
-        },
-    ]
+    const [notes, setNotes] = useState([])
+
+    useEffect(() => {
+        noteService.query().then(setNotes)
+    }, [])
+
+    function onSetNotes(note) {
+        const { title, info } = note
+        if (!title && !info.txt) return
+
+        noteService.save(note).then(() => {
+            noteService.query().then(setNotes)
+        })
+    }
 
     return (
-        <main>
+        <main className="note-main-layout">
+            <NoteEdit onSetNotes={onSetNotes} />
             <NoteList notes={notes} />
         </main>
     )

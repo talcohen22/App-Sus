@@ -1,1 +1,10 @@
- /* note list */
+/* note list */
+
+.note-card {
+    margin: 30px;
+}
+
+.note-card > * {
+    list-style: none;
+    padding: 0;
+}
