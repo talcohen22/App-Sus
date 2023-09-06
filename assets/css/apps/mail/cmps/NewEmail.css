@@ -1,0 +1,70 @@
+.new-message-container {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    box-shadow: 0px 0px 7px 0px;
+    height: 340px;
+    width: 440px;
+}
+
+.new-message-container form div{
+    display: flex
+}
+
+.new-message-container form div input{
+    flex-grow: 1;
+}
+
+.new-message-container form div input:focus{
+    outline: none;
+}
+
+.new-message-container textarea {
+    resize: none;
+    width: 435px;
+    height: 240px;
+}
+
+.new-message-container textarea:focus{
+    outline: none;
+}
+
+.new-message-container p {
+    color: #041e49;
+    background-color: #f2f2f2;
+    padding: 8px;
+    margin: 0;
+}
+
+.new-message-container input,
+.new-message-container textarea {
+    border-width: 0;
+}
+
+.new-message-container label,
+.new-message-container input {
+    border-bottom: 1px solid #e8eaed;
+    padding: 8px;
+}
+
+.close-new-message{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.send-btn{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: #0b57d0;
+    padding: 10px;
+    border: none;
+    width: 80px ;
+    border-radius: 555px;
+    cursor: pointer;
+}

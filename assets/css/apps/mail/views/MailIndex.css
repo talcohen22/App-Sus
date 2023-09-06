@@ -18,6 +18,7 @@
 
  .mails-layout .features i {
      font-size: 15px;
+     cursor: pointer;
  }
 
  .bold{
