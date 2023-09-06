@@ -4,7 +4,7 @@ export function MailPreview({ email }) {
 
     function getDateFormat() {
         const todayDate = new Date()
-        
+
         const date = new Date(email.sentAt)
         const day = date.getDate()
         const month = date.getMonth() + 1
@@ -15,11 +15,11 @@ export function MailPreview({ email }) {
     }
 
     return (
-        <div className="mail-container">
-            <span>{email.from}</span>
-            <span>{email.subject}</span>
-            <span>{getDateFormat()}</span>
-        </div>
+        <tr >
+            <td>{email.from}</td>
+            <td>{email.subject}</td>
+            <td>{getDateFormat()}</td>
+        </tr>
 
     )
 }
