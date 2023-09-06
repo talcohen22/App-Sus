@@ -1,7 +1,6 @@
 header {
-
-    background: lightcyan;
-    border-bottom: 2px solid white;
+    background: var(--mainClrGray);
+    border-bottom: 1px solid var(--blackClr);
 }
 
 .app-header {
@@ -11,7 +10,7 @@ header {
 }
 
 nav a {
-    margin: .5em;
+    margin: 0.5em;
 }
 
 nav a:active {
@@ -22,4 +21,13 @@ nav a.active {
     color: darkblue;
     font-weight: bold;
     text-decoration: overline;
+}
+
+.app-header img {
+    height: 30px;
+}
+
+.app-header nav {
+    display: flex;
+    align-items: center;
 }
