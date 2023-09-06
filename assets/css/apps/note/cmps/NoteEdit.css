@@ -3,27 +3,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin: 20px auto;
+    max-width: 450px;
     padding: 20px 10px;
+    font-size: 1rem;
     line-height: 1.25rem;
-    font-size: 0.875rem;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    width: 100%;
 }
 
 .form-note-edit .bar-input {
-    width: 100%;
-}
-
-.bar-input {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+    font-size: 1.2rem;
+}
+.form-note-edit .bar-input:focus {
+    outline: none;
 }
 
-.bar-input input {
-    flex-grow: 1;
+.form-note-edit form {
+    width: 100%;
 }
