@@ -20,5 +20,10 @@ export function NotePreview({ note }) {
             noteComponent = null
     }
 
-    return <section className="txt-info">{noteComponent}</section>
+    return (
+        <section className="txt-info">
+            {note.title !== undefined && <p>{note.title}</p>}
+            {noteComponent}
+        </section>
+    )
 }

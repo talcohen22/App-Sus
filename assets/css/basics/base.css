@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    font-family: 'google-sans ';
 }
 
 h1,
@@ -21,4 +20,8 @@ img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.note-main-layout {
+    font-family: sans-serif;
 }

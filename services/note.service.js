@@ -5,10 +5,25 @@ _createNotes()
 
 export const noteService = {
     query,
+    save,
+    get,
+    getEmptyNote,
 }
 
 function query() {
     return storageService.query(NOTE_KEY)
+}
+
+function save(note) {
+    if (note.id) {
+        return storageService.put(NOTE_KEY, note)
+    } else {
+        return storageService.post(NOTE_KEY, note)
+    }
+}
+
+function get(noteId) {
+    return storageService.get(NOTE_KEY, noteId)
 }
 
 function _createNotes() {
@@ -53,5 +68,20 @@ function _createNotes() {
             },
         ]
         utilService.saveToStorage(NOTE_KEY, notes)
+    }
+}
+
+function getEmptyNote() {
+    return {
+        title: '',
+        createdAt: Date.now(),
+        type: 'NoteTxt',
+        isPinned: false,
+        style: {
+            backgroundColor: '',
+        },
+        info: {
+            txt: '',
+        },
     }
 }
