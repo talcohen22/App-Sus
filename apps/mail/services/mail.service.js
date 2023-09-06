@@ -24,6 +24,11 @@ const EMAILS = [
     }
 ]
 
+const loggedinUser = {
+    email: 'user@appsus.com',
+    fullname: 'Mahatma Appsus'
+}
+
 const EMAIL_KEY = 'emailDB'
 
 _createEmails()
@@ -32,13 +37,28 @@ export const mailService = {
     query,
     get,
     put,
-    getCountUnreadMessages
+    getCountUnreadMessages,
+    post,
+    createEmail
 }
 
-
+function createEmail(to, subject, body){
+    return {
+        id: utilService.makeId(),
+        subject,
+        body,
+        isRead: true,
+        sentAt: Date.now(),
+        removedAt: null,
+        from: loggedinUser.email,
+        to
+    }
+}
 
 function query() {
-    return storageService.query(EMAIL_KEY)
+    return storageService.query(EMAIL_KEY).then(emails => {
+        return emails.filter(email => email.from !== loggedinUser.email)
+    })
 }
 
 function get(emailId) {
@@ -47,6 +67,10 @@ function get(emailId) {
     //     email = _setNextPrevCarId(email)
     //     return email
     // })
+}
+
+function post(email){
+    return storageService.post(EMAIL_KEY, email)
 }
 
 function getCountUnreadMessages() {

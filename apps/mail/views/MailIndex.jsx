@@ -3,31 +3,43 @@ import { mailService } from '../services/mail.service.js'
 import { NewEmail } from '../cmps/NewEmail.jsx'
 
 const { useEffect, useState } = React
+const { useNavigate } = ReactRouterDOM
 
 export function MailIndex() {
 
     const [emails, setEmails] = useState(null)
     const [countUnreadMessages, setCountUnreadMessages] = useState(0)
-    const [isNewMessageModalOpen, setIsNewMessageModalOpen] = useState(false)
+    const [isNewMsgModalOpen, setIsNewMsgModalOpen] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
-        mailService.query().then(res => {
-            setEmails(res)
-        })
-        mailService.getCountUnreadMessages().then(res => {
-            setCountUnreadMessages(res)
-        })
+        mailService.query().then(setEmails)
+        mailService.getCountUnreadMessages().then(setCountUnreadMessages)
     }, [])
 
-    function openNewMessageModal() {
-        setIsNewMessageModalOpen(true)
+    function openNewMsgModal(isOpen) {
+        setIsNewMsgModalOpen(isOpen)
+    }
+
+    function sendMail(ev) {
+        navigate('/mail')
+        setIsNewMsgModalOpen(false)
+
+        const email = ev.target.email.value
+        const subject = ev.target.subject.value
+        const body = ev.target.body.value
+        const newMail = mailService.createEmail(email, subject, body)
+
+        mailService.post(newMail).then(() => {
+            // mailService.query().then(setEmails)
+        })
     }
 
     if (!emails) return
     return (
         <section className="mails-layout">
             <aside className="features">
-                <i className="fa-solid fa-pencil" onClick={() => openNewMessageModal()}></i>
+                <i className="fa-solid fa-pencil" onClick={() => openNewMsgModal(true)}></i>
                 {/* <i className="fa-solid fa-inbox"></i> */}
                 <div>
                     <i className="fa-regular fa-envelope"></i>
@@ -39,7 +51,7 @@ export function MailIndex() {
             </aside>
 
             <MailList emails={emails} />
-            {isNewMessageModalOpen && <NewEmail/>}
+            {isNewMsgModalOpen && <NewEmail openNewMsgModal={openNewMsgModal} sendMail={sendMail} />}
         </section>
 
     )
