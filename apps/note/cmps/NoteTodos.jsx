@@ -3,13 +3,13 @@ export function NoteTodos({ info }) {
 
     const toDos = info.todos
     return (
-        <section>
+        <React.Fragment>
             <p>{info.title}</p>
             <ul>
                 {toDos.map((todo) => (
                     <li key="">{todo.txt}</li>
                 ))}
             </ul>
-        </section>
+        </React.Fragment>
     )
 }

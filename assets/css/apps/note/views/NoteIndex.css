@@ -1,1 +1,8 @@
- /* note index */
+/* note index */
+
+.note-card {
+    background: rgb(211, 122, 122);
+    border-radius: 8px;
+    padding: 10px;
+    width: 237px;
+}

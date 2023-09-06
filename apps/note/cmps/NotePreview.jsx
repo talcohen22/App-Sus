@@ -20,5 +20,5 @@ export function NotePreview({ note }) {
             noteComponent = null
     }
 
-    return <article className="txt-info">{noteComponent}</article>
+    return <section className="txt-info">{noteComponent}</section>
 }

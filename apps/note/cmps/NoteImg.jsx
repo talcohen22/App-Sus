@@ -1,9 +1,9 @@
 export function NoteImg({ info }) {
     console.log('NoteImg info', info)
     return (
-        <section>
+        <React.Fragment>
             <img src={info.url} alt="" />
             <p>{info.title}</p>
-        </section>
+        </React.Fragment>
     )
 }
