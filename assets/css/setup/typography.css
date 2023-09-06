@@ -1,4 +1,9 @@
 @font-face{
+    font-family: 'google-sans-bold';
+    src: url("../../fonts/googleSans/ProductSans-Bold.ttf")
+}
+
+@font-face{
     font-family: 'google-sans';
     src: url("../../fonts/googleSans/ProductSans-Regular.ttf")
 }

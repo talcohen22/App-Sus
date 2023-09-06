@@ -6,12 +6,12 @@ export function MailList({ emails }) {
 
     return (
         <React.Fragment>
-            <ul className="mails-container">
+            <table className="mails-container">
                 {emails.map(email =>
-                    <li key={email.id}>
+                    <tbody key={email.id}>
                         <MailPreview email={email} />
-                    </li>)}
-            </ul>
+                    </tbody>)}
+            </table>
         </React.Fragment >
     )
 }

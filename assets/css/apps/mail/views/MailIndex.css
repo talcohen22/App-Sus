@@ -1,1 +1,20 @@
- /* mail index  */
+ .mail-container {
+     display: flex;
+
+     font-family: 'google-sans-bold';
+     font-size: 0.875rem;
+ }
+
+ .mail-container .features {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 5px;
+
+     background-color: #eaf1fb;
+     width: 68px;
+ }
+
+ .mail-container .features i {
+     font-size: 15px;
+ }
