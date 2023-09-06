@@ -37,6 +37,7 @@ export function NoteEdit({ onSetNotes }) {
             <div>
                 <form onSubmit={onSaveNote}>
                     <input
+                        className="bar-input"
                         onChange={handleChange}
                         type="text"
                         name="title"
@@ -45,6 +46,7 @@ export function NoteEdit({ onSetNotes }) {
                         placeholder="Title"
                     />
                     <input
+                        className="bar-input"
                         onChange={handleChange}
                         type="text"
                         name="txt"
@@ -56,14 +58,15 @@ export function NoteEdit({ onSetNotes }) {
                     <button>add</button>
                 </form>
             </div>
+            <div className="button-container">
+                <button onClick={() => handleClick('NoteTodos')}>
+                    <i className="fa-regular fa-square-check fa-lg"></i>
+                </button>
 
-            <button onClick={() => handleClick('NoteTodos')}>
-                <i className="fa-regular fa-square-check fa-lg"></i>
-            </button>
-
-            <button onClick={() => handleClick('NoteImg')}>
-                <i className="fa-regular fa-image fa-lg"></i>
-            </button>
+                <button onClick={() => handleClick('NoteImg')}>
+                    <i className="fa-regular fa-image fa-lg"></i>
+                </button>
+            </div>
         </div>
     )
 }
