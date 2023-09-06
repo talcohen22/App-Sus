@@ -31,7 +31,8 @@ _createEmails()
 export const mailService = {
     query,
     get,
-    put
+    put,
+    getCountUnreadMessages
 }
 
 
@@ -40,12 +41,18 @@ function query() {
     return storageService.query(EMAIL_KEY)
 }
 
-function get(emailId){
+function get(emailId) {
     return storageService.get(EMAIL_KEY, emailId)
     // .then(email => {
     //     email = _setNextPrevCarId(email)
     //     return email
     // })
+}
+
+function getCountUnreadMessages() {
+    return storageService.query(EMAIL_KEY).then(emails => {
+        return emails.filter(email => !email.isRead).length
+    })
 }
 
 function put(email) {

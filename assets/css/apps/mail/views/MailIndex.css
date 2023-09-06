@@ -23,3 +23,17 @@
  .bold{
     font-weight: bold;
  }
+
+ .features div{
+    /* position: relative; */
+ }
+
+ .features div .unread-messages{
+    color: white;
+    background-color: #c5221f ;
+    padding: 3px;
+    border-radius: 40%;
+    /* position: absolute;
+    top: 0; */
+ }
+
