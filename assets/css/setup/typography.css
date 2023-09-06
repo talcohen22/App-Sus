@@ -1,0 +1,9 @@
+@font-face{
+    font-family: 'google-sans';
+    src: url("../../fonts/googleSans/ProductSans-Regular.ttf")
+}
+
+@font-face{
+    font-family: 'roboto-serif';
+    src: url("../../fonts/robotoSerif/RobotoSerif_120pt-Regular.ttf")
+}
