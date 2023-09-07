@@ -1,4 +1,4 @@
-import { noteService } from '../../../services/note.service.js'
+import { noteService } from '../services/note.service.js'
 import { NoteDefaultForm } from './NoteDefaultForm.jsx'
 import { NoteImgForm } from './NoteImgForm.jsx'
 import { NoteTodosForm } from './NoteTodosForm.jsx'
@@ -12,6 +12,7 @@ export function NoteEdit({ onSetNotes }) {
 
     useEffect(() => {
         console.log('dynType:', dynType)
+        setNoteEdit(noteService.getEmptyNote())
     }, [dynType])
 
     function handleChange({ target }) {

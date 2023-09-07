@@ -1,5 +1,3 @@
-import { utilService } from '../../../services/util.service.js'
-
 export function NoteTodos({ note }) {
     let count = 0
     const { info, title } = note

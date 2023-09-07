@@ -1,5 +1,5 @@
 import { NoteList } from '../cmps/NoteList.jsx'
-import { noteService } from '../../../services/note.service.js'
+import { noteService } from '../services/note.service.js'
 import { NoteEdit } from '../cmps/NoteEdit.jsx'
 
 const { useState, useEffect } = React
@@ -8,7 +8,6 @@ export function NoteIndex() {
     const [notes, setNotes] = useState([])
 
     useEffect(() => {
-        console.log('ddd')
         noteService.query().then(setNotes)
     }, [])
 
