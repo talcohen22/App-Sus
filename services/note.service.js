@@ -47,8 +47,8 @@ function _createNotes() {
                 id: 'n103',
                 type: 'NoteTodos',
                 isPinned: false,
+                title: 'Weekend Plans',
                 info: {
-                    title: 'Weekend Plans',
                     todos: [
                         { txt: 'Hiking with friends', doneAt: null },
                         { txt: 'Picnic by the lake', doneAt: 1631007600 },
@@ -73,9 +73,9 @@ function _createNotes() {
                 id: 'n102',
                 type: 'NoteImg',
                 isPinned: false,
+                title: 'Scenic Beauty',
                 info: {
                     img: 'https://freesvg.org/img/food-maburger-royale.png',
-                    title: 'Scenic Beauty',
                 },
                 style: {
                     backgroundColor: '#a832ff',
@@ -85,9 +85,9 @@ function _createNotes() {
                 id: 'n105',
                 type: 'NoteImg',
                 isPinned: false,
+                title: 'Travel Goals',
                 info: {
                     img: 'https://images.immediate.co.uk/production/volatile/sites/30/2021/03/Cacio-e-Pepe-e44b9f8.jpg?quality=90&resize=556,505',
-                    title: 'Travel Goals',
                 },
                 style: {
                     backgroundColor: '#00d',
@@ -98,9 +98,9 @@ function _createNotes() {
                 id: 'n108',
                 type: 'NoteImg',
                 isPinned: false,
+                title: 'Soccer Game Tomorrow',
                 info: {
                     img: 'https://image-and-file-storage.storage.googleapis.com/images/library/large/trek-wahoo-26-345352-3363194-1.png',
-                    title: 'Soccer Game Tomorrow',
                 },
                 style: {
                     backgroundColor: '#a832ff',
@@ -110,8 +110,8 @@ function _createNotes() {
                 id: 'n106',
                 type: 'NoteTodos',
                 isPinned: false,
+                title: 'Grocery List',
                 info: {
-                    title: 'Grocery List',
                     todos: [
                         { txt: 'Milk', doneAt: null },
                         { txt: 'Eggs', doneAt: null },
@@ -134,8 +134,8 @@ function _createNotes() {
                 id: 'n109',
                 type: 'NoteTodos',
                 isPinned: false,
+                title: 'Work Tasks',
                 info: {
-                    title: 'Work Tasks',
                     todos: [
                         { txt: 'Finish project report', doneAt: null },
                         { txt: 'Send client emails', doneAt: null },
@@ -159,8 +159,8 @@ function _createNotes() {
                 id: 'n112',
                 type: 'NoteTodos',
                 isPinned: false,
+                title: 'Home Improvement',
                 info: {
-                    title: 'Home Improvement',
                     todos: [
                         { txt: 'Paint living room', doneAt: null },
                         { txt: 'Fix leaky faucet', doneAt: null },
@@ -183,9 +183,9 @@ function _createNotes() {
                 id: 'n114',
                 type: 'NoteImg',
                 isPinned: false,
+                title: 'Nature Retreat',
                 info: {
                     img: 'https://img.ice.co.il/giflib/news/15102214.jpg',
-                    title: 'Nature Retreat',
                 },
                 style: {
                     backgroundColor: '#a832ff',
@@ -195,9 +195,9 @@ function _createNotes() {
                 id: 'n111',
                 type: 'NoteImg',
                 isPinned: false,
+                title: 'Healthy Eating Plan',
                 info: {
                     img: 'https://www.codingninjas.com/blog/wp-content/uploads/2020/10/Blog-2020-10-01T172831.659.png',
-                    title: 'Healthy Eating Plan',
                 },
                 style: {
                     backgroundColor: '#00d',
@@ -207,8 +207,8 @@ function _createNotes() {
                 id: 'n115',
                 type: 'NoteTodos',
                 isPinned: false,
+                title: 'Home Gardening',
                 info: {
-                    title: 'Home Gardening',
                     todos: [
                         { txt: 'Plant flowers', doneAt: null },
                         { txt: 'Water the garden', doneAt: null },
@@ -231,9 +231,9 @@ function _createNotes() {
                 id: 'n117',
                 type: 'NoteImg',
                 isPinned: false,
+                title: 'Packing for a Trip',
                 info: {
                     img: 'https://www.visitagnes1770.com.au/wp-content/uploads/2020/06/Agnes-Water-Main-Beach.jpg',
-                    title: 'Packing for a Trip',
                 },
                 style: {
                     backgroundColor: '#00d',
@@ -243,8 +243,8 @@ function _createNotes() {
                 id: 'n118',
                 type: 'NoteTodos',
                 isPinned: false,
+                title: 'Fitness Goals',
                 info: {
-                    title: 'Fitness Goals',
                     todos: [
                         { txt: 'Go for a run', doneAt: null },
                         { txt: 'Do yoga', doneAt: null },
@@ -267,9 +267,9 @@ function _createNotes() {
                 id: 'n120',
                 type: 'NoteImg',
                 isPinned: false,
+                title: 'Pizza Night!',
                 info: {
                     img: 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Skateboarder_in_the_air.jpg',
-                    title: 'Pizza Night!',
                 },
                 style: {
                     backgroundColor: '#a832ff',
@@ -283,16 +283,17 @@ function _createNotes() {
 
 function getEmptyNote() {
     return {
-        title: '',
         createdAt: Date.now(),
         type: 'NoteTxt',
         isPinned: false,
         style: {
             backgroundColor: '',
         },
+        title: '',
         info: {
             txt: '',
             img: '',
+            todos: [],
         },
     }
 }

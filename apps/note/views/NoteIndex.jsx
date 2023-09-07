@@ -12,17 +12,17 @@ export function NoteIndex() {
     }, [])
 
     function onSetNotes(note) {
-        console.log('note shitttt', note.type)
-
+        console.log('note bitch', note)
         if (note.info.img !== '') note.type = 'NoteImg'
+        if (note.info.txt === Array) note.type = 'NoteTodos'
 
         const { title, info } = note
         if (!title && !info.txt) return
 
-        console.log('noteeeeeeeeeeee', note)
         noteService.save(note).then(() => {
             noteService.query().then(setNotes)
         })
+        note.type = 'NoteTxt'
     }
 
     return (

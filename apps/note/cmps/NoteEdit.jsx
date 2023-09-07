@@ -8,17 +8,16 @@ const { useState, useEffect } = React
 
 export function NoteEdit({ onSetNotes }) {
     const [noteEdit, setNoteEdit] = useState(noteService.getEmptyNote())
-    const [dynType, setDynType] = useState('NoteDefaultForm')
+    const [dynType, setDynType] = useState('')
 
     useEffect(() => {
-        console.log('changeeeee to:', dynType)
+        console.log('dynType:', dynType)
     }, [dynType])
 
     function handleChange({ target }) {
-        console.log('target', target)
         const field = target.name
         let value = target.value
-        console.log('noteEdit', field, noteEdit)
+        console.log('field', field)
 
         setNoteEdit((prevNoteEdit) => {
             if (field === 'txt') {
@@ -32,17 +31,26 @@ export function NoteEdit({ onSetNotes }) {
     }
 
     function onSaveNote(note) {
-        console.log('note typrrrrrrrrrrrrrrrr', note)
+        noteEdit.title = note.title || ''
+        noteEdit.type = dynType
+        switch (dynType) {
+            case 'NoteTxt':
+                noteEdit.info.txt = note.text || ''
+                break
 
-        noteEdit.title = note.title
-        noteEdit.info.txt = note.text
-        noteEdit.info.img = note.file || ''
+            case 'NoteImg':
+                noteEdit.info.txt = note.text || ''
+                noteEdit.info.img = note.file || ''
+                break
 
+            case 'NoteTodos':
+                noteEdit.info.txt = note.text || ''
+                noteEdit.info.todos = note.todos || []
+                break
+        }
+        console.log('noteEdit after! ! !', noteEdit)
         onSetNotes(noteEdit)
     }
-    console.log('noteEdit.title', noteEdit.title)
-    console.log('noteEdit.info.txt', noteEdit.info.txt)
-    console.log('noteEdit.info.img', noteEdit.info.img)
 
     let formComponent
     switch (dynType) {

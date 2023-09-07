@@ -5,14 +5,13 @@ export function NoteImgForm({ onSaveNote, handleChange, noteEdit }) {
     const fileInputRef = useRef(null)
 
     function handleInputFile(ev) {
-        console.log(ev.target.files)
         let imgUrl = URL.createObjectURL(ev.target.files[0])
         setFile(imgUrl)
     }
 
     useEffect(() => {
+        console.log('note', noteEdit)
         if (fileInputRef.current) {
-            console.log('fileInputRef.current', fileInputRef.current)
             fileInputRef.current.click()
         }
     }, [])

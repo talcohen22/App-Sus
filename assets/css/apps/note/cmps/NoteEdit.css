@@ -5,7 +5,6 @@
     align-items: center;
     margin: 20px auto;
     max-width: 450px;
-    padding: 20px 10px;
     font-size: 1rem;
     line-height: 1.25rem;
     background-color: #fff;
@@ -16,9 +15,10 @@
 .form-note-edit .bar-input {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    max-width: 100%;
     border: none;
-    padding: 10px 0;
+    border-radius: 8px;
+    padding: 12px 16px 12px 16px;
     font-size: 1.2rem;
 }
 .form-note-edit .bar-input:focus {
@@ -27,4 +27,8 @@
 
 .form-note-edit form {
     width: 100%;
+}
+
+.bar-input-list {
+    list-style: '+';
 }

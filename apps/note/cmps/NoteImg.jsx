@@ -1,9 +1,10 @@
-export function NoteImg({ info }) {
-    console.log('NoteImg info', info)
+export function NoteImg({ note }) {
+    const { info, title } = note
     return (
         <React.Fragment>
-            <img src={info.img} alt="'whattttttt" />
-            <p>{info.title}</p>
+            {info.img !== undefined && <img src={info.img} alt="imgggg" />}
+            {title !== undefined && <p>{title}</p>}
+            {info.txt !== undefined && <p>{info.txt}</p>}
         </React.Fragment>
     )
 }

@@ -8,22 +8,17 @@ export function NotePreview({ note }) {
 
     switch (cmpType) {
         case 'NoteTxt':
-            noteComponent = <NoteTxt {...note} />
+            noteComponent = <NoteTxt note={note} />
             break
         case 'NoteImg':
-            noteComponent = <NoteImg {...note} x />
+            noteComponent = <NoteImg note={note} />
             break
         case 'NoteTodos':
-            noteComponent = <NoteTodos {...note} />
+            noteComponent = <NoteTodos note={note} />
             break
         default:
             noteComponent = null
+        // return ?
     }
-
-    return (
-        <section className="txt-info">
-            {note.title !== undefined && <p>{note.title}</p>}
-            {noteComponent}
-        </section>
-    )
+    return <section className="txt-info">{noteComponent}</section>
 }
