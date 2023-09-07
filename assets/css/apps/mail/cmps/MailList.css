@@ -1,4 +1,5 @@
 .mails-container{
     flex-grow: 1;
     border-collapse: collapse;
+    height: fit-content;
 }

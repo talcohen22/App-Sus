@@ -32,13 +32,12 @@ export function MailPreview({ email, filterBy, markMail }) {
     }
 
     const dyClass = email.isRead ? '' : 'bold'
-    console.log("aaa");
     return (
         <tr onClick={onGetMail} className={dyClass}>
-            {(params.mailType !== 'trash') && <td><input type="checkbox" name="" id="" onChange={onMarkMail} /></td>}
-            <td>{filterBy.mailType === 'sent' ? 'to: ' + email.to : email.from}</td>
+            {(params.mailType !== 'trash') && <td className='checkbox-td'><input type="checkbox" name="" id="" onChange={onMarkMail} /></td>}
+            <td className='email-td'>{filterBy.mailType === 'sent' ? 'to: ' + email.to : email.from}</td>
             <td>{email.subject}</td>
-            <td>{getDateFormat()}</td>
+            <td className='date-td'>{getDateFormat()}</td>
         </tr>
     )
 }

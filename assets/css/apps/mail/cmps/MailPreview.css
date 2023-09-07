@@ -1,19 +1,35 @@
 .mails-container tr{
     cursor: pointer;
 }
+.mails-container tr:hover{
+    box-shadow: 0px 1px 2px 0px;
+}
 
 .mails-container tr td {
-
+    padding: 5px;
     border-bottom: 1px solid #c0c0c0;
-
 }
 
-.mails-container tr td:first-child {
-    /* width: 150px; */
+.mails-container tr td input{
+    cursor: pointer;
 }
 
-.mails-container tr td:last-child{
-    /* width: 50px; */
+.mails-container tr td:first-child{
+    padding-inline-start: 15px;
+}
+
+.mails-container tr .checkbox-td{
+    width: 30px;
+}
+
+.mails-container tr .email-td {
+    width: 250px;
+}
+
+.mails-container tr .date-td{
+    width: 75px;
+    text-align: right;
+    padding-inline-end: 10px;
 }
 
 .mails-container tr td{

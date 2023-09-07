@@ -2,6 +2,7 @@ import { MailList } from '../cmps/MailList.jsx'
 import { mailService } from '../services/mail.service.js'
 import { MailCompose } from '../cmps/MailCompose.jsx'
 import { MailFeatures } from '../cmps/MailFeatures.jsx'
+import { MailFilter } from '../cmps/MailFilter.jsx'
 
 const { useEffect, useState, useRef } = React
 const { useNavigate, useParams } = ReactRouterDOM
@@ -58,14 +59,23 @@ export function MailIndex() {
 
     if (!emails) return
     return (
-        <section className="mails-layout">
-            {(isEmailMarked.current === true) && <i className="fa-solid fa-trash-can" onClick={onRemoveEmails}></i>}
-            <MailFeatures onSetMailsType={onSetMailsType} openNewMsgModal={openNewMsgModal} countUnreadMessages={countUnreadMessages} />
+        <section >
+            <div className='mail-filter'>
+                <MailFilter/>
+            </div>
+            <div className="mails-body">
+                <MailFeatures onSetMailsType={onSetMailsType} openNewMsgModal={openNewMsgModal} countUnreadMessages={countUnreadMessages} />
 
-            <MailList emails={emails} filterBy={filterBy} markMail={markMail} />
-            {isNewMsgModalOpen && <MailCompose openNewMsgModal={openNewMsgModal} sendMail={sendMail} />}
+                <MailList emails={emails} filterBy={filterBy} markMail={markMail} />
+
+                {isNewMsgModalOpen && <MailCompose openNewMsgModal={openNewMsgModal} sendMail={sendMail} />}
+
+                <div className='more-options'>
+                    {(isEmailMarked.current === true) && <i className="fa-solid fa-trash-can" onClick={onRemoveEmails}></i>}
+                </div>
+            </div>
+
         </section>
-
     )
 }
 

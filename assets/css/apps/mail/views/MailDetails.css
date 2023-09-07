@@ -1,7 +1,66 @@
-.mail-details-container img{
+.mail-details-container * {
+    font-family: sans-serif;
+}
+
+.mail-details-container > *{
+    margin-block-end: 30px;
+}
+
+.mail-details-container img {
     width: 40px;
 }
 
-.mail-details-container .back-btn{
+.mail-details-container .back-btn {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    /* padding-block: 30px; */
+}
+
+.actions i {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 17px;
+    color: #474747;
+}
+
+/* .mail-details-container h1{
+    margin-block-end: 20px;
+} */
+
+.sent-by {
+    display: flex;
+    align-items: start;
+    gap: 8px;
+}
+
+.sent-by p {
+    padding-top: 7px;
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.replay-forward-btn > *{
+    color: #474747;;
+    background-color: white;
+    padding: 10px;
+    border-radius: 555px;
+    border: 1px solid #474747;;
+}
+
+.replay-forward-btn button:first-child{
+    margin-inline-end: 5px;
+}
+
+.replay-forward-btn button{
+    padding-inline: 15px;
+}
+
+.replay-forward-btn button i{
+    margin-inline-end: 10px;
 }
