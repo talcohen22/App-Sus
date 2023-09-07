@@ -21,3 +21,12 @@
 .grid {
     display: grid;
 }
+
+.extend {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+.extend > * {
+    margin: 5px !important;
+}

@@ -10,10 +10,23 @@ export function NoteEdit({ onSetNotes }) {
     const [noteEdit, setNoteEdit] = useState(noteService.getEmptyNote())
     const [dynType, setDynType] = useState('')
 
+    //FIXME: TODO THE BTN HOVER GOOD
+    const [isFormActive, setIsFormActive] = useState(false)
+    const [isExtend, setIsExtend] = useState(false)
+
     useEffect(() => {
         console.log('dynType:', dynType)
         setNoteEdit(noteService.getEmptyNote())
     }, [dynType])
+
+    function toggleIsFormActive() {
+        if (!isExtend) setIsFormActive((prevIsFormActive) => !prevIsFormActive)
+    }
+
+    function handleButtonClick(newDynType) {
+        setDynType(newDynType)
+        toggleIsFormActive()
+    }
 
     function handleChange({ target }) {
         const field = target.name
@@ -72,24 +85,24 @@ export function NoteEdit({ onSetNotes }) {
             break
         case 'NoteDefaultForm':
         default:
-            formComponent = <NoteDefaultForm onClick={() => setDynType('NoteTxt')} />
+            formComponent = <NoteDefaultForm onClick={() => handleButtonClick('NoteTxt')} />
     }
 
     return (
-        <div className="form-note-edit">
+        <div className={`form-note-edit${isFormActive ? ' extend' : ''}`}>
             {formComponent}
 
-            <div className="button-container">
-                <button onClick={() => setDynType('NoteTxt')}>
-                    <i className="fa-regular fa-message fa-lg"></i>
+            <div className="button-container ">
+                <button className="btn btn-msg" onClick={() => handleButtonClick('NoteTxt')}>
+                    <i className="fa-regular fa-message fa-xl"></i>
                 </button>
 
-                <button onClick={() => setDynType('NoteImg')}>
-                    <i className="fa-regular fa-image fa-lg"></i>
+                <button className="btn btn-img" onClick={() => handleButtonClick('NoteImg')}>
+                    <i className="fa-regular fa-image fa-xl"></i>
                 </button>
 
-                <button onClick={() => setDynType('NoteTodos')}>
-                    <i className="fa-regular fa-square-check fa-lg"></i>
+                <button className="btn btn-todos" onClick={() => handleButtonClick('NoteTodos')}>
+                    <i className="fa-regular fa-square-check fa-xl"></i>
                 </button>
             </div>
         </div>
