@@ -24,7 +24,7 @@ function post(entityType, newEntity) {
     console.log('newEntity:', newEntity)
     if (!newEntity.id) newEntity.id = _makeId()
     return query(entityType).then(entities => {
-        entities.push(newEntity)
+        entities.unshift(newEntity)
         _save(entityType, entities)
         return newEntity
     })
