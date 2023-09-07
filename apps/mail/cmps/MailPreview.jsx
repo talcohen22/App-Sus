@@ -1,6 +1,8 @@
-const { useNavigate, useParams} = ReactRouterDOM
+import { mailService } from '../services/mail.service.js'
 
-export function MailPreview({ email, filterBy }) {
+const { useNavigate, useParams } = ReactRouterDOM
+
+export function MailPreview({ email, filterBy, markMail }) {
 
     const navigate = useNavigate()
     const params = useParams()
@@ -17,16 +19,25 @@ export function MailPreview({ email, filterBy }) {
         return day + '/' + month + '/' + year
     }
 
-    function onGetMail(){
+    function onGetMail() {
         navigate(`/mail/${params.mailType}/${email.id}`)
+    }
+
+    function onMarkMail(ev) {
+        navigate(`/mail/${params.mailType}`)
+        mailService.setIsMarked(email, ev.target.checked).then(res => {
+            markMail()
+            navigate(`/mail/${params.mailType}`)
+        })
     }
 
     const dyClass = email.isRead ? '' : 'bold'
     return (
-            <tr onClick={onGetMail} className={dyClass}>
-                <td>{filterBy.mailType === 'sent' ? 'to: ' + email.to : email.from}</td>
-                <td>{email.subject}</td>
-                <td>{getDateFormat()}</td>
-            </tr>
+        <tr onClick={onGetMail} className={dyClass}>
+            {(params.mailType !== 'trash') && <td><input type="checkbox" name="" id="" onChange={onMarkMail} /></td>}
+            <td>{filterBy.mailType === 'sent' ? 'to: ' + email.to : email.from}</td>
+            <td>{email.subject}</td>
+            <td>{getDateFormat()}</td>
+        </tr>
     )
 }

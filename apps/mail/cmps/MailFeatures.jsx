@@ -8,7 +8,7 @@ export function MailFeatures({openNewMsgModal, countUnreadMessages, onSetMailsTy
                     {countUnreadMessages > 0 && <span className="unread-messages">{countUnreadMessages ? countUnreadMessages : ''}</span>}
                 </div>
                 <i className="fa-regular fa-star"></i>
-                <i className="fa-solid fa-trash-can"></i>
+                <i onClick={() => onSetMailsType('trash')} className="fa-solid fa-trash-can"></i>
                 <i onClick={() => onSetMailsType('sent')} className="fa-regular fa-paper-plane"></i>
             </aside>
     )

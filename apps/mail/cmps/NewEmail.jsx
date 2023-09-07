@@ -1,7 +1,6 @@
-
 export function NewEmail({ sendMail, openNewMsgModal }) {
 
-    function onSendMail(ev){
+    function onSendMail(ev) {
         ev.preventDefault()
         sendMail(ev)
     }

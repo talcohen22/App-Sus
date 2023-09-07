@@ -1,8 +1,7 @@
 import { mailService } from '../services/mail.service.js'
-const { useNavigate} = ReactRouterDOM
 
 const { useEffect, useState } = React
-const { useParams } = ReactRouterDOM
+const { useParams, useNavigate } = ReactRouterDOM
 
 export function MailDetails() {
     const params = useParams()
@@ -16,7 +15,7 @@ export function MailDetails() {
         })
     }, [])
 
-    function markAsUnRead(){
+    function markAsUnRead() {
         mailService.get(params.emailId).then(email => {
             email.isRead = false
             mailService.put(email).then(() => {
@@ -25,7 +24,7 @@ export function MailDetails() {
         })
     }
 
-    function onBack(){
+    function onBack() {
         navigate(`/mail/${params.mailType}`)
     }
 

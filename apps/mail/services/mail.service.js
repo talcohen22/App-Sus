@@ -10,7 +10,8 @@ const EMAILS = [
         sentAt: 1551133930594,
         removedAt: null,
         from: 'momo@momo.com',
-        to: 'user@appsus.com'
+        to: 'user@appsus.com',
+        isMarked: false,
     },
     {
         id: 'e102',
@@ -20,7 +21,8 @@ const EMAILS = [
         sentAt: 1551133930594,
         removedAt: null,
         from: 'stav@momo.com',
-        to: 'user@appsus.com'
+        to: 'user@appsus.com',
+        isMarked: false,
     }
 ]
 
@@ -39,7 +41,11 @@ export const mailService = {
     put,
     getCountUnreadMessages,
     post,
-    createEmail
+    createEmail,
+    isEmailsMark,
+    removeEmails,
+    setIsMarked,
+    setAllEmailsMarked
 }
 
 function createEmail(to, subject, body) {
@@ -51,14 +57,16 @@ function createEmail(to, subject, body) {
         sentAt: Date.now(),
         removedAt: null,
         from: loggedinUser.email,
-        to
+        to,
+        isMarked: false,
     }
 }
 
 function query(filterBy) {
     return storageService.query(EMAIL_KEY).then(emails => {
-        if (filterBy.mailType === 'inbox') return emails.filter(email => email.from !== loggedinUser.email)
-        if (filterBy.mailType === 'sent') return emails.filter(email => email.from === loggedinUser.email)
+        if (filterBy.mailType === 'inbox') return emails.filter(email => email.from !== loggedinUser.email && !email.removedAt)
+        if (filterBy.mailType === 'sent') return emails.filter(email => email.from === loggedinUser.email && !email.removedAt)
+        if (filterBy.mailType === 'trash') return emails.filter(email => email.removedAt)
     })
 }
 
@@ -75,10 +83,7 @@ function post(email) {
 }
 
 function getCountUnreadMessages(emails) {
-    // return storageService.query(EMAIL_KEY).then(emails => {
-        return emails.filter(email => !email.isRead).length
-    // }
-    // )
+    return emails.filter(email => !email.isRead).length
 }
 
 function put(email) {
@@ -88,4 +93,34 @@ function put(email) {
 function _createEmails() {
     const emails = utilService.loadFromStorage(EMAIL_KEY)
     if (!emails || !emails.length) utilService.saveToStorage(EMAIL_KEY, EMAILS)
+}
+
+function isEmailsMark(emails) {
+    const idx = emails.findIndex(email => {
+        return email.isMarked === true
+    })
+    return (idx >= 0) ? true : false
+}
+
+function removeEmails() {
+    return storageService.query(EMAIL_KEY).then(emails => {
+        emails.forEach(email => {
+            if (email.isMarked) email.removedAt = Date.now()
+        })
+        utilService.saveToStorage(EMAIL_KEY, emails)
+    })
+}
+
+function setIsMarked(email, isMarked) {
+    email.isMarked = isMarked
+    return storageService.put(EMAIL_KEY, email)
+}
+
+function setAllEmailsMarked() {
+    return storageService.query(EMAIL_KEY).then(emails => {
+        emails.forEach(email => {
+            email.isMarked = false
+        })
+        utilService.saveToStorage(EMAIL_KEY, emails)
+    })
 }

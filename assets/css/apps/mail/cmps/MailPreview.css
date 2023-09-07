@@ -19,3 +19,7 @@
 .mails-container tr td{
     /* word-wrap: break-word; */
 }
+
+.mail-row{
+    display: flex;
+}

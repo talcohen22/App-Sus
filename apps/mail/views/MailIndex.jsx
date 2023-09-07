@@ -3,7 +3,7 @@ import { mailService } from '../services/mail.service.js'
 import { NewEmail } from '../cmps/NewEmail.jsx'
 import { MailFeatures } from '../cmps/MailFeatures.jsx'
 
-const { useEffect, useState } = React
+const { useEffect, useState, useRef } = React
 const { useNavigate, useParams } = ReactRouterDOM
 
 export function MailIndex() {
@@ -13,22 +13,20 @@ export function MailIndex() {
     const [filterBy, setFilterBy] = useState({ mailType: params.mailType })
     const [countUnreadMessages, setCountUnreadMessages] = useState(0)
     const [isNewMsgModalOpen, setIsNewMsgModalOpen] = useState(false)
+    const isEmailMarked = useRef(false)
     const navigate = useNavigate()
-
-    // useEffect(() => {
-    //     setFilterBy({...filterBy, mailType: params.mailType})
-    // }, [])
 
     useEffect(() => {
         mailService.query(filterBy).then(emails => {
             setEmails(emails)
             setCountUnreadMessages(mailService.getCountUnreadMessages(emails))
         })
-    }, [filterBy])
+    }, [filterBy, isNewMsgModalOpen])
 
     function onSetMailsType(type) {
+        isEmailMarked.current = false
         setFilterBy({ ...filterBy, mailType: type })
-        navigate(`/mail/${type}`)
+        mailService.setAllEmailsMarked().then(() => navigate(`/mail/${type}`))
     }
 
     function openNewMsgModal(isOpen) {
@@ -36,8 +34,7 @@ export function MailIndex() {
     }
 
     function sendMail(ev) {
-        navigate('/mail')
-        setIsNewMsgModalOpen(false)
+        navigate(`/mail/${filterBy.mailType}`)
 
         const email = ev.target.email.value
         const subject = ev.target.subject.value
@@ -45,16 +42,27 @@ export function MailIndex() {
         const newMail = mailService.createEmail(email, subject, body)
 
         mailService.post(newMail).then(() => {
-            // mailService.query().then(setEmails)
+            setIsNewMsgModalOpen(false)
+        })
+    }
+
+    function markMail() {
+        isEmailMarked.current = mailService.isEmailsMark(emails)
+    }
+
+    function onRemoveEmails() {
+        mailService.removeEmails().then(() => {
+            setFilterBy({ ...filterBy })
         })
     }
 
     if (!emails) return
     return (
         <section className="mails-layout">
+            {(isEmailMarked.current === true) && <i className="fa-solid fa-trash-can" onClick={onRemoveEmails}></i>}
             <MailFeatures onSetMailsType={onSetMailsType} openNewMsgModal={openNewMsgModal} countUnreadMessages={countUnreadMessages} />
 
-            <MailList emails={emails} filterBy={filterBy} />
+            <MailList emails={emails} filterBy={filterBy} markMail={markMail} />
             {isNewMsgModalOpen && <NewEmail openNewMsgModal={openNewMsgModal} sendMail={sendMail} />}
         </section>
 
