@@ -29,44 +29,6 @@ function get(noteId) {
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
-        // notes = [
-        //     {
-        //         id: 'n101',
-        //         createdAt: 1112222,
-        //         type: 'NoteTxt',
-        //         isPinned: true,
-        //         style: {
-        //             backgroundColor: '#00d',
-        //         },
-        //         info: {
-        //             txt: 'Fullstack Me Baby!',
-        //         },
-        //     },
-        //     {
-        //         id: 'n102',
-        //         type: 'NoteImg',
-        //         isPinned: false,
-        //         info: {
-        //             url: 'https://freesvg.org/img/food-maburger-royale.png',
-        //             title: 'Bobi and Me',
-        //         },
-        //         style: {
-        //             backgroundColor: '#00d',
-        //         },
-        //     },
-        //     {
-        //         id: 'n103',
-        //         type: 'NoteTodos',
-        //         isPinned: false,
-        //         info: {
-        //             title: 'Get my stuff together',
-        //             todos: [
-        //                 { txt: 'Driving license', doneAt: null },
-        //                 { txt: 'Coding power', doneAt: 187111111 },
-        //             ],
-        //         },
-        //     },
-        // ]
         notes = [
             {
                 id: 'n101',
@@ -112,7 +74,7 @@ function _createNotes() {
                 type: 'NoteImg',
                 isPinned: false,
                 info: {
-                    url: 'https://freesvg.org/img/food-maburger-royale.png',
+                    img: 'https://freesvg.org/img/food-maburger-royale.png',
                     title: 'Scenic Beauty',
                 },
                 style: {
@@ -124,7 +86,7 @@ function _createNotes() {
                 type: 'NoteImg',
                 isPinned: false,
                 info: {
-                    url: 'https://images.immediate.co.uk/production/volatile/sites/30/2021/03/Cacio-e-Pepe-e44b9f8.jpg?quality=90&resize=556,505',
+                    img: 'https://images.immediate.co.uk/production/volatile/sites/30/2021/03/Cacio-e-Pepe-e44b9f8.jpg?quality=90&resize=556,505',
                     title: 'Travel Goals',
                 },
                 style: {
@@ -137,7 +99,7 @@ function _createNotes() {
                 type: 'NoteImg',
                 isPinned: false,
                 info: {
-                    url: 'https://image-and-file-storage.storage.googleapis.com/images/library/large/trek-wahoo-26-345352-3363194-1.png',
+                    img: 'https://image-and-file-storage.storage.googleapis.com/images/library/large/trek-wahoo-26-345352-3363194-1.png',
                     title: 'Soccer Game Tomorrow',
                 },
                 style: {
@@ -222,7 +184,7 @@ function _createNotes() {
                 type: 'NoteImg',
                 isPinned: false,
                 info: {
-                    url: 'https://img.ice.co.il/giflib/news/15102214.jpg',
+                    img: 'https://img.ice.co.il/giflib/news/15102214.jpg',
                     title: 'Nature Retreat',
                 },
                 style: {
@@ -234,7 +196,7 @@ function _createNotes() {
                 type: 'NoteImg',
                 isPinned: false,
                 info: {
-                    url: 'https://www.codingninjas.com/blog/wp-content/uploads/2020/10/Blog-2020-10-01T172831.659.png',
+                    img: 'https://www.codingninjas.com/blog/wp-content/uploads/2020/10/Blog-2020-10-01T172831.659.png',
                     title: 'Healthy Eating Plan',
                 },
                 style: {
@@ -270,7 +232,7 @@ function _createNotes() {
                 type: 'NoteImg',
                 isPinned: false,
                 info: {
-                    url: 'https://www.visitagnes1770.com.au/wp-content/uploads/2020/06/Agnes-Water-Main-Beach.jpg',
+                    img: 'https://www.visitagnes1770.com.au/wp-content/uploads/2020/06/Agnes-Water-Main-Beach.jpg',
                     title: 'Packing for a Trip',
                 },
                 style: {
@@ -306,7 +268,7 @@ function _createNotes() {
                 type: 'NoteImg',
                 isPinned: false,
                 info: {
-                    url: 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Skateboarder_in_the_air.jpg',
+                    img: 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Skateboarder_in_the_air.jpg',
                     title: 'Pizza Night!',
                 },
                 style: {
@@ -330,6 +292,7 @@ function getEmptyNote() {
         },
         info: {
             txt: '',
+            img: '',
         },
     }
 }

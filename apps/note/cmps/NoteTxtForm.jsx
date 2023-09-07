@@ -1,6 +1,14 @@
 export function NoteTxtForm({ onSaveNote, handleChange, noteEdit }) {
+    function handleSubmit(ev) {
+        ev.preventDefault()
+        onSaveNote({
+            title: noteEdit.title,
+            text: noteEdit.info.txt,
+        })
+    }
+
     return (
-        <form onSubmit={onSaveNote}>
+        <form onSubmit={handleSubmit}>
             <input
                 className="bar-input"
                 onChange={handleChange}

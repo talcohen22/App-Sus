@@ -15,6 +15,7 @@ export function NoteEdit({ onSetNotes }) {
     }, [dynType])
 
     function handleChange({ target }) {
+        console.log('target', target)
         const field = target.name
         let value = target.value
         console.log('noteEdit', field, noteEdit)
@@ -30,12 +31,19 @@ export function NoteEdit({ onSetNotes }) {
         })
     }
 
-    function onSaveNote(ev) {
-        ev.preventDefault()
+    function onSaveNote(note) {
+        console.log('note typrrrrrrrrrrrrrrrr', note)
+
+        noteEdit.title = note.title
+        noteEdit.info.txt = note.text
+        noteEdit.info.img = note.file || ''
+
         onSetNotes(noteEdit)
     }
     console.log('noteEdit.title', noteEdit.title)
     console.log('noteEdit.info.txt', noteEdit.info.txt)
+    console.log('noteEdit.info.img', noteEdit.info.img)
+
     let formComponent
     switch (dynType) {
         case 'NoteTxt':
@@ -78,26 +86,3 @@ export function NoteEdit({ onSetNotes }) {
         </div>
     )
 }
-
-//TODO: regular form text
-// <form onSubmit={onSaveNote}>
-//     <input
-//         className="bar-input"
-//         onChange={handleChange}
-//         type="text"
-//         name="title"
-//         value={noteEdit.title}
-//         id="title"
-//         placeholder="Title"
-//     />
-//     <input
-//         className="bar-input"
-//         onChange={handleChange}
-//         type="text"
-//         name="txt"
-//         id="text"
-//         value={noteEdit.info.txt}
-//         placeholder="Write note..."
-//     />
-//     <button>add</button>
-// </form>

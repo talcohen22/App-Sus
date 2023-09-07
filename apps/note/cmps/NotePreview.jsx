@@ -11,7 +11,7 @@ export function NotePreview({ note }) {
             noteComponent = <NoteTxt {...note} />
             break
         case 'NoteImg':
-            noteComponent = <NoteImg {...note} />
+            noteComponent = <NoteImg {...note} x />
             break
         case 'NoteTodos':
             noteComponent = <NoteTodos {...note} />
