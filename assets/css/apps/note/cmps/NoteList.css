@@ -9,5 +9,5 @@
 }
 
 .note-list {
-    columns: 237px;
+    columns: 237px auto;
 }
