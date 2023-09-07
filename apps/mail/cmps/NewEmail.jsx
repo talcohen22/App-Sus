@@ -1,5 +1,5 @@
 
-export function NewEmail({ sendMail }) {
+export function NewEmail({ sendMail, openNewMsgModal }) {
 
     function onSendMail(ev){
         ev.preventDefault()

@@ -1,21 +1,35 @@
 import { MailList } from '../cmps/MailList.jsx'
 import { mailService } from '../services/mail.service.js'
 import { NewEmail } from '../cmps/NewEmail.jsx'
+import { MailFeatures } from '../cmps/MailFeatures.jsx'
 
 const { useEffect, useState } = React
-const { useNavigate } = ReactRouterDOM
+const { useNavigate, useParams } = ReactRouterDOM
 
 export function MailIndex() {
 
+    const params = useParams()
     const [emails, setEmails] = useState(null)
+    const [filterBy, setFilterBy] = useState({ mailType: params.mailType })
     const [countUnreadMessages, setCountUnreadMessages] = useState(0)
     const [isNewMsgModalOpen, setIsNewMsgModalOpen] = useState(false)
     const navigate = useNavigate()
 
+    // useEffect(() => {
+    //     setFilterBy({...filterBy, mailType: params.mailType})
+    // }, [])
+
     useEffect(() => {
-        mailService.query().then(setEmails)
-        mailService.getCountUnreadMessages().then(setCountUnreadMessages)
-    }, [])
+        mailService.query(filterBy).then(emails => {
+            setEmails(emails)
+            setCountUnreadMessages(mailService.getCountUnreadMessages(emails))
+        })
+    }, [filterBy])
+
+    function onSetMailsType(type) {
+        setFilterBy({ ...filterBy, mailType: type })
+        navigate(`/mail/${type}`)
+    }
 
     function openNewMsgModal(isOpen) {
         setIsNewMsgModalOpen(isOpen)
@@ -38,19 +52,9 @@ export function MailIndex() {
     if (!emails) return
     return (
         <section className="mails-layout">
-            <aside className="features">
-                <i className="fa-solid fa-pencil" onClick={() => openNewMsgModal(true)}></i>
-                {/* <i className="fa-solid fa-inbox"></i> */}
-                <div>
-                    <i className="fa-regular fa-envelope"></i>
-                    {countUnreadMessages > 0 && <span className="unread-messages">{countUnreadMessages ? countUnreadMessages : ''}</span>}
-                </div>
-                <i className="fa-regular fa-star"></i>
-                <i className="fa-solid fa-trash-can"></i>
-                <i className="fa-regular fa-paper-plane"></i>
-            </aside>
+            <MailFeatures onSetMailsType={onSetMailsType} openNewMsgModal={openNewMsgModal} countUnreadMessages={countUnreadMessages} />
 
-            <MailList emails={emails} />
+            <MailList emails={emails} filterBy={filterBy} />
             {isNewMsgModalOpen && <NewEmail openNewMsgModal={openNewMsgModal} sendMail={sendMail} />}
         </section>
 

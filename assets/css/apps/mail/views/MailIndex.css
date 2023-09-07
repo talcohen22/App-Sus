@@ -6,35 +6,6 @@
      font-size: 0.875rem;
  }
 
- .mails-layout .features {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     gap: 5px;
-
-     background-color: #eaf1fb;
-     width: 68px;
+ .bold {
+     font-weight: bold;
  }
-
- .mails-layout .features i {
-     font-size: 15px;
-     cursor: pointer;
- }
-
- .bold{
-    font-weight: bold;
- }
-
- .features div{
-    /* position: relative; */
- }
-
- .features div .unread-messages{
-    color: white;
-    background-color: #c5221f ;
-    padding: 3px;
-    border-radius: 40%;
-    /* position: absolute;
-    top: 0; */
- }
-

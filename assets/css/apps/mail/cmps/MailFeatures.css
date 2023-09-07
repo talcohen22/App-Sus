@@ -1,0 +1,28 @@
+.mails-layout .features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    background-color: #eaf1fb;
+    width: 68px;
+}
+
+.mails-layout .features i {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+.features div .unread-messages {
+    color: white;
+    background-color: #c5221f;
+    padding: 3px;
+    border-radius: 40%;
+    position: absolute;
+    bottom: 0;
+}
+
+.features div {
+    position: relative;
+}

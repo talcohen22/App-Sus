@@ -42,7 +42,7 @@ export const mailService = {
     createEmail
 }
 
-function createEmail(to, subject, body){
+function createEmail(to, subject, body) {
     return {
         id: utilService.makeId(),
         subject,
@@ -55,9 +55,10 @@ function createEmail(to, subject, body){
     }
 }
 
-function query() {
+function query(filterBy) {
     return storageService.query(EMAIL_KEY).then(emails => {
-        return emails.filter(email => email.from !== loggedinUser.email)
+        if (filterBy.mailType === 'inbox') return emails.filter(email => email.from !== loggedinUser.email)
+        if (filterBy.mailType === 'sent') return emails.filter(email => email.from === loggedinUser.email)
     })
 }
 
@@ -69,14 +70,15 @@ function get(emailId) {
     // })
 }
 
-function post(email){
+function post(email) {
     return storageService.post(EMAIL_KEY, email)
 }
 
-function getCountUnreadMessages() {
-    return storageService.query(EMAIL_KEY).then(emails => {
+function getCountUnreadMessages(emails) {
+    // return storageService.query(EMAIL_KEY).then(emails => {
         return emails.filter(email => !email.isRead).length
-    })
+    // }
+    // )
 }
 
 function put(email) {

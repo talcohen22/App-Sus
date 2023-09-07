@@ -20,6 +20,8 @@
 }
 
 .new-message-container textarea {
+    box-sizing: border-box;
+    padding: 10px;
     resize: none;
     width: 435px;
     height: 240px;
@@ -34,6 +36,10 @@
     background-color: #f2f2f2;
     padding: 8px;
     margin: 0;
+}
+
+.new-message-container label{
+    color: #666666;
 }
 
 .new-message-container input,

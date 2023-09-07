@@ -20,14 +20,19 @@ export function MailDetails() {
         mailService.get(params.emailId).then(email => {
             email.isRead = false
             mailService.put(email).then(() => {
-                navigate("/mail")
+                onBack()
             })
         })
+    }
+
+    function onBack(){
+        navigate(`/mail/${params.mailType}`)
     }
 
     if (!email) return
     return (
         <div className="mail-details-container">
+            <i onClick={() => onBack()} className="fa-solid fa-arrow-left-long back-btn"></i>
             <h1>{email.subject}</h1>
             <img src="../../../assets/img/mail/user.png" alt="" />
             <h3>{email.from}</h3>

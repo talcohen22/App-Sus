@@ -1,8 +1,9 @@
-const { useNavigate} = ReactRouterDOM
+const { useNavigate, useParams} = ReactRouterDOM
 
-export function MailPreview({ email }) {
+export function MailPreview({ email, filterBy }) {
 
     const navigate = useNavigate()
+    const params = useParams()
 
     function getDateFormat() {
         const todayDate = new Date()
@@ -17,13 +18,13 @@ export function MailPreview({ email }) {
     }
 
     function onGetMail(){
-        navigate(`/mail/${email.id}`)
+        navigate(`/mail/${params.mailType}/${email.id}`)
     }
 
     const dyClass = email.isRead ? '' : 'bold'
     return (
             <tr onClick={onGetMail} className={dyClass}>
-                <td>{email.from}</td>
+                <td>{filterBy.mailType === 'sent' ? 'to: ' + email.to : email.from}</td>
                 <td>{email.subject}</td>
                 <td>{getDateFormat()}</td>
             </tr>
