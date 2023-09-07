@@ -8,6 +8,7 @@ export function NoteIndex() {
     const [notes, setNotes] = useState([])
 
     useEffect(() => {
+        console.log('ddd')
         noteService.query().then(setNotes)
     }, [])
 
