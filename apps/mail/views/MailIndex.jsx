@@ -1,6 +1,6 @@
 import { MailList } from '../cmps/MailList.jsx'
 import { mailService } from '../services/mail.service.js'
-import { NewEmail } from '../cmps/NewEmail.jsx'
+import { MailCompose } from '../cmps/MailCompose.jsx'
 import { MailFeatures } from '../cmps/MailFeatures.jsx'
 
 const { useEffect, useState, useRef } = React
@@ -19,7 +19,7 @@ export function MailIndex() {
     useEffect(() => {
         mailService.query(filterBy).then(emails => {
             setEmails(emails)
-            setCountUnreadMessages(mailService.getCountUnreadMessages(emails))
+            mailService.getCountUnreadMessages().then(setCountUnreadMessages)
         })
     }, [filterBy, isNewMsgModalOpen])
 
@@ -63,7 +63,7 @@ export function MailIndex() {
             <MailFeatures onSetMailsType={onSetMailsType} openNewMsgModal={openNewMsgModal} countUnreadMessages={countUnreadMessages} />
 
             <MailList emails={emails} filterBy={filterBy} markMail={markMail} />
-            {isNewMsgModalOpen && <NewEmail openNewMsgModal={openNewMsgModal} sendMail={sendMail} />}
+            {isNewMsgModalOpen && <MailCompose openNewMsgModal={openNewMsgModal} sendMail={sendMail} />}
         </section>
 
     )

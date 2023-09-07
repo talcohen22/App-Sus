@@ -32,6 +32,7 @@ export function MailPreview({ email, filterBy, markMail }) {
     }
 
     const dyClass = email.isRead ? '' : 'bold'
+    console.log("aaa");
     return (
         <tr onClick={onGetMail} className={dyClass}>
             {(params.mailType !== 'trash') && <td><input type="checkbox" name="" id="" onChange={onMarkMail} /></td>}
