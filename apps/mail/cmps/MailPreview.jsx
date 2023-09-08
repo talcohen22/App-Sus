@@ -20,7 +20,8 @@ export function MailPreview({ email, filterBy, markMail }) {
     }
 
     function onGetMail() {
-        navigate(`/mail/${params.mailType}/${email.id}`)
+        const rPath = params.mailType ? params.mailType : 'inbox'
+        navigate(`/mail/${rPath}/${email.id}`)
     }
 
     function onMarkMail(ev) {

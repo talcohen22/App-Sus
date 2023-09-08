@@ -416,6 +416,7 @@ function createEmail(to, subject, body) {
 
 function query(filterBy) {
     return storageService.query(EMAIL_KEY).then(emails => {
+        if (filterBy.isShowUnread) emails = emails.filter(email => email.isRead === false)
         if (filterBy.mailType === 'inbox') return emails.filter(email => email.from !== loggedinUser.email && !email.removedAt)
         if (filterBy.mailType === 'sent') return emails.filter(email => email.from === loggedinUser.email && !email.removedAt)
         if (filterBy.mailType === 'trash') return emails.filter(email => email.removedAt)

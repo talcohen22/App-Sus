@@ -57,15 +57,19 @@ export function MailIndex() {
         })
     }
 
-    function onSetFilterBy(searchKey){
-        setFilterBy({searchKey})
+    function onSetFilterBy(newFilterBy) {
+        if (newFilterBy.searchKey) setFilterBy({ searchKey: newFilterBy.searchKey, isShowUnread: filterBy.isShowUnread })
+        if (newFilterBy.isShowUnread !== null && newFilterBy.isShowUnread !== undefined) {
+            filterBy.isShowUnread = newFilterBy.isShowUnread
+            setFilterBy({ ...filterBy })
+        }
     }
 
     if (!emails) return
     return (
         <section >
             <div className='mail-filter'>
-                <MailFilter onSetFilterBy={onSetFilterBy}/>
+                <MailFilter onSetFilterBy={onSetFilterBy} />
             </div>
             <div className="mails-body">
                 <MailFeatures onSetMailsType={onSetMailsType} openNewMsgModal={openNewMsgModal} countUnreadMessages={countUnreadMessages} />

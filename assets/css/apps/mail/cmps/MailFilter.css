@@ -3,6 +3,14 @@
     justify-content: center;
     background-color: #f6f8fc;
     padding: 5px;
+    font-family: sans-serif;
+    font-size: 0.75rem;
+}
+
+.filter-by-form{
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .filter-by-form .search-mail-container {
@@ -13,12 +21,7 @@
     border-radius: 555px;
 }
 
-/* .search-mail:focus .search-mail-container{
-    box-shadow: 0px 0px 4px 0px;
-} */
-
 .filter-by-form .search-mail {
-    /* padding: 15px; */
     border: none;
     background-color: #eaf1fb;
     border-radius: 555px;
@@ -27,4 +30,13 @@
 
 .filter-by-form .search-mail:focus {
     outline: none;
+}
+
+.search-mail-container:focus-within {
+    outline: 1px solid rgba(35, 34, 34, 0.18);
+}
+
+.unread-msg-filter{
+    display: flex;
+    align-items: center;
 }
