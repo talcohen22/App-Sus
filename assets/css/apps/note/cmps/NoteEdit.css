@@ -4,7 +4,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 10px auto;
+    margin: 35px auto;
     max-width: 450px;
     font-size: 1rem;
     line-height: 1.25rem;
@@ -33,6 +33,7 @@
 
 .bar-input-list {
     border: none;
+    width: 95%;
 }
 
 .form-note-edit ul {
@@ -56,7 +57,10 @@
     position: absolute;
     right: 0;
     bottom: 0;
+}
 
+.btn-close-and-send-form,
+.btn-add-line {
     border: none;
     background: none;
     cursor: pointer;
@@ -67,11 +71,12 @@
     border-radius: 7px;
     font-family: 'google-sans';
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .btn-close-and-send-form:hover,
-.btn:hover {
+.btn:hover,
+.btn-add-line:hover {
     color: var(--blackClr);
     background-color: var(--btnBgClr);
     box-shadow: inset 1px 1px 0 var(--btnShadowClr);
@@ -87,4 +92,17 @@
 .color-button:hover {
     outline: 0.5px solid var(--btnClr);
     cursor: pointer;
+}
+
+.items-line > :nth-child(1) {
+    border-bottom: 1px solid var(--btnBgClr);
+    border-top: 1px solid var(--btnBgClr);
+}
+
+.items-line > *:not(:first-child) {
+    border-bottom: 1px solid var(--btnBgClr);
+}
+
+.btn-add-line {
+    margin-left: 1rem;
 }

@@ -7,11 +7,15 @@ export const noteService = {
     query,
     save,
     get,
+    remove,
     getEmptyNote,
 }
 
 function query() {
     return storageService.query(NOTE_KEY)
+}
+function remove(noteId) {
+    return storageService.remove(NOTE_KEY, noteId)
 }
 
 function save(note) {
@@ -170,7 +174,7 @@ function _createNotes() {
                 isPinned: false,
                 title: 'Home Improvement',
                 style: {
-                    backgroundColor: '#fff',
+                    backgroundColor: '#aeccdc',
                 },
                 info: {
                     todos: [
@@ -221,7 +225,7 @@ function _createNotes() {
                 isPinned: false,
                 title: 'Home Gardening',
                 style: {
-                    backgroundColor: '#ff5733',
+                    backgroundColor: '#b4ddd3',
                 },
                 info: {
                     todos: [

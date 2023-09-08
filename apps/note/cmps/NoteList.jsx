@@ -1,7 +1,7 @@
 import { NotePreview } from '../cmps/NotePreview.jsx'
 import { NoteBtnsPreview } from '../cmps/NoteBtnsPreview.jsx'
 
-export function NoteList({ notes, onPaletteButtonClick }) {
+export function NoteList({ notes, onPaletteButtonClick, onRemoveNote, onTogglePin }) {
     if (!notes || !notes.length) return <div> loading.. </div>
 
     return (
@@ -15,7 +15,12 @@ export function NoteList({ notes, onPaletteButtonClick }) {
                         <NotePreview note={note} />
                     </ul>
                     <div className="note-btns">
-                        <NoteBtnsPreview note={note} onPaletteButtonClick={onPaletteButtonClick} />
+                        <NoteBtnsPreview
+                            note={note}
+                            onPaletteButtonClick={onPaletteButtonClick}
+                            onRemoveNote={onRemoveNote}
+                            onTogglePin={onTogglePin}
+                        />
                     </div>
                 </div>
             ))}

@@ -1,20 +1,22 @@
 import { NoteList } from '../cmps/NoteList.jsx'
 import { noteService } from '../services/note.service.js'
 import { NoteEdit } from '../cmps/NoteEdit.jsx'
+import { NoteFilter } from '../cmps/NoteFilter.jsx'
 
 const { useState, useEffect } = React
 
 export function NoteIndex() {
     const [notes, setNotes] = useState([])
     const [bgClr, setBgClr] = useState({ backgroundColor: '', noteId: '' })
+    const [isPin, setIsPin] = useState()
 
     useEffect(() => {
         noteService.query().then(setNotes)
     }, [])
 
     useEffect(() => {
-        console.log('bgClr', bgClr)
-    }, [bgClr])
+        console.log('bgClr', bgClr, isPin)
+    }, [bgClr, isPin])
 
     function onSetNotes(note) {
         console.log('note bitch', note)
@@ -39,10 +41,32 @@ export function NoteIndex() {
         setBgClr({ backgroundColor: color, noteId: noteId })
     }
 
+    function onRemoveNote(noteId) {
+        noteService.remove(noteId).then(() => {
+            setNotes((prevNotes) => prevNotes.filter((note) => note.id !== noteId))
+        })
+    }
+
+    function onTogglePin(noteId) {
+        const note = notes.find((note) => note.id === noteId)
+        note.isPinned = !note.isPinned
+        noteService.save(note).then(() => {
+            noteService.query().then(setNotes)
+        })
+        setIsPin(note.isPinned)
+    }
+
     return (
         <main className="note-main-layout">
             <NoteEdit onSetNotes={onSetNotes} />
-            <NoteList notes={notes} onPaletteButtonClick={onPaletteButtonClick} />
+            <NoteFilter />
+            <hr />
+            <NoteList
+                notes={notes}
+                onPaletteButtonClick={onPaletteButtonClick}
+                onRemoveNote={onRemoveNote}
+                onTogglePin={onTogglePin}
+            />
         </main>
     )
 }

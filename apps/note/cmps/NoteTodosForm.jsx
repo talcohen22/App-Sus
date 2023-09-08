@@ -37,22 +37,22 @@ export function NoteTodosForm({ onSaveNote, handleChange, noteEdit }) {
                 value={noteEdit.title}
                 placeholder="Title"
             />
-            <ul>
+            <ul className="items-line">
                 {items.map((item) => (
-                    <li key={item.id}>
+                    <li className="item-line" key={item.id}>
                         <input
                             className="bar-input-list"
                             onChange={(ev) => handleItemChange(ev, item.id)}
                             type="text"
                             name={`txt-${item.id}`}
                             value={item.txt}
-                            placeholder="Write note..."
+                            placeholder="List item"
                         />
                     </li>
                 ))}
             </ul>
-            <button type="button" onClick={handleAddItem}>
-                +
+            <button className="btn-add-line " type="button" onClick={handleAddItem}>
+                Add list item
             </button>
             <button type="submit" className="btn btn-close-and-send-form">
                 Close
