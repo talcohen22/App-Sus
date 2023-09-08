@@ -397,7 +397,7 @@ export const mailService = {
     isEmailsMark,
     removeEmails,
     setIsMarked,
-    setAllEmailsMarked
+    setAllEmailsMarked,
 }
 
 function createEmail(to, subject, body) {
@@ -461,9 +461,14 @@ function isEmailsMark(emails) {
 function removeEmails() {
     return storageService.query(EMAIL_KEY).then(emails => {
         emails.forEach(email => {
-            if (email.isMarked) email.removedAt = Date.now()
+            if (email.isMarked && !email.removedAt) email.removedAt = Date.now()
+            if (email.isMarked && email.removedAt){ ////////////////////////////////////////////gettttttttttttttttttttttttttttt
+                let emails = utilService.loadFromStorage(EMAIL_KEY)
+                const idx = emails.findIndex(currEmail => currEmail.id === email.id)
+                emails.splice(idx, 1)
+                utilService.saveToStorage(EMAIL_KEY, emails)
+            } 
         })
-        utilService.saveToStorage(EMAIL_KEY, emails)
     })
 }
 

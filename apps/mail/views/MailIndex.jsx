@@ -52,9 +52,16 @@ export function MailIndex() {
     }
 
     function onRemoveEmails() {
-        mailService.removeEmails().then(() => {
-            setFilterBy({ ...filterBy })
-        })
+        console.log(params.mailType);
+        if (params.mailType === 'trash'){
+            const userSure = confirm('Delete forever?')
+            if (!userSure) return
+        }
+        if (params.mailType === 'inbox' || params.mailType === 'sent' || params.mailType === 'trash'){
+            mailService.removeEmails().then(() => {
+                setFilterBy({ ...filterBy })
+            })
+        }  
     }
 
     function onSetFilterBy(newFilterBy) {
