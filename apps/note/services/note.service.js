@@ -36,7 +36,7 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#ff5733',
+                    backgroundColor: '#faafa8',
                 },
                 info: {
                     txt: 'New adventures await!',
@@ -48,6 +48,9 @@ function _createNotes() {
                 type: 'NoteTodos',
                 isPinned: false,
                 title: 'Weekend Plans',
+                style: {
+                    backgroundColor: '#b4ddd3',
+                },
                 info: {
                     todos: [
                         { txt: 'Hiking with friends', doneAt: null },
@@ -63,7 +66,7 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d',
+                    backgroundColor: '#faafa8',
                 },
                 info: {
                     txt: 'Remember to call mom!',
@@ -78,7 +81,7 @@ function _createNotes() {
                     img: 'https://freesvg.org/img/food-maburger-royale.png',
                 },
                 style: {
-                    backgroundColor: '#a832ff',
+                    backgroundColor: '#b4ddd3',
                 },
             },
             {
@@ -90,7 +93,7 @@ function _createNotes() {
                     img: 'https://images.immediate.co.uk/production/volatile/sites/30/2021/03/Cacio-e-Pepe-e44b9f8.jpg?quality=90&resize=556,505',
                 },
                 style: {
-                    backgroundColor: '#00d',
+                    backgroundColor: '#fff',
                 },
             },
 
@@ -103,7 +106,7 @@ function _createNotes() {
                     img: 'https://image-and-file-storage.storage.googleapis.com/images/library/large/trek-wahoo-26-345352-3363194-1.png',
                 },
                 style: {
-                    backgroundColor: '#a832ff',
+                    backgroundColor: '#aeccdc',
                 },
             },
             {
@@ -111,6 +114,9 @@ function _createNotes() {
                 type: 'NoteTodos',
                 isPinned: false,
                 title: 'Grocery List',
+                style: {
+                    backgroundColor: '#aeccdc',
+                },
                 info: {
                     todos: [
                         { txt: 'Milk', doneAt: null },
@@ -124,7 +130,7 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#ff5733',
+                    backgroundColor: '#aeccdc',
                 },
                 info: {
                     txt: 'Practice guitar for an hour.',
@@ -135,6 +141,9 @@ function _createNotes() {
                 type: 'NoteTodos',
                 isPinned: false,
                 title: 'Work Tasks',
+                style: {
+                    backgroundColor: '#fff8b8',
+                },
                 info: {
                     todos: [
                         { txt: 'Finish project report', doneAt: null },
@@ -148,7 +157,7 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d',
+                    backgroundColor: '#fff',
                 },
                 info: {
                     txt: 'Buy tickets for concert!',
@@ -160,6 +169,9 @@ function _createNotes() {
                 type: 'NoteTodos',
                 isPinned: false,
                 title: 'Home Improvement',
+                style: {
+                    backgroundColor: '#fff',
+                },
                 info: {
                     todos: [
                         { txt: 'Paint living room', doneAt: null },
@@ -173,7 +185,7 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#ff5733',
+                    backgroundColor: '#fff8b8',
                 },
                 info: {
                     txt: 'Plan vacation itinerary.',
@@ -188,7 +200,7 @@ function _createNotes() {
                     img: 'https://img.ice.co.il/giflib/news/15102214.jpg',
                 },
                 style: {
-                    backgroundColor: '#a832ff',
+                    backgroundColor: '#f39f76',
                 },
             },
             {
@@ -200,7 +212,7 @@ function _createNotes() {
                     img: 'https://www.codingninjas.com/blog/wp-content/uploads/2020/10/Blog-2020-10-01T172831.659.png',
                 },
                 style: {
-                    backgroundColor: '#00d',
+                    backgroundColor: '#b4ddd3',
                 },
             },
             {
@@ -208,6 +220,9 @@ function _createNotes() {
                 type: 'NoteTodos',
                 isPinned: false,
                 title: 'Home Gardening',
+                style: {
+                    backgroundColor: '#ff5733',
+                },
                 info: {
                     todos: [
                         { txt: 'Plant flowers', doneAt: null },
@@ -221,7 +236,7 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d',
+                    backgroundColor: '#f6e2dd',
                 },
                 info: {
                     txt: 'Call the plumber!',
@@ -236,7 +251,7 @@ function _createNotes() {
                     img: 'https://www.visitagnes1770.com.au/wp-content/uploads/2020/06/Agnes-Water-Main-Beach.jpg',
                 },
                 style: {
-                    backgroundColor: '#00d',
+                    backgroundColor: '#f6e2dd',
                 },
             },
             {
@@ -244,6 +259,9 @@ function _createNotes() {
                 type: 'NoteTodos',
                 isPinned: false,
                 title: 'Fitness Goals',
+                style: {
+                    backgroundColor: '#d4e4ed',
+                },
                 info: {
                     todos: [
                         { txt: 'Go for a run', doneAt: null },
@@ -257,7 +275,7 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#ff5733',
+                    backgroundColor: '#f6e2dd',
                 },
                 info: {
                     txt: 'Write a thank-you letter.',
@@ -272,7 +290,7 @@ function _createNotes() {
                     img: 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Skateboarder_in_the_air.jpg',
                 },
                 style: {
-                    backgroundColor: '#a832ff',
+                    backgroundColor: '#d4e4ed',
                 },
             },
         ];
@@ -287,7 +305,7 @@ function getEmptyNote() {
         type: 'NoteTxt',
         isPinned: false,
         style: {
-            backgroundColor: '',
+            backgroundColor: '#fff',
         },
         title: '',
         info: {

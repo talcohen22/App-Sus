@@ -1,6 +1,7 @@
 /* note list */
 .note-card {
     break-inside: avoid;
+    break-inside: avoid-column;
 }
 .note-card > * {
     list-style: none;
@@ -20,6 +21,6 @@
 }
 
 .note-list {
-    columns: 237px;
-    column-gap: 10px;
+    columns: 240px;
+    column-gap: 15px;
 }

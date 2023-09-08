@@ -1,16 +1,20 @@
 import { NoteList } from '../cmps/NoteList.jsx'
 import { noteService } from '../services/note.service.js'
 import { NoteEdit } from '../cmps/NoteEdit.jsx'
-import { func } from 'prop-types'
 
 const { useState, useEffect } = React
 
 export function NoteIndex() {
     const [notes, setNotes] = useState([])
-    const [backgroundColor, setBackgroundColor] = useState('#ffffff')
+    const [bgClr, setBgClr] = useState({ backgroundColor: '', noteId: '' })
+
     useEffect(() => {
         noteService.query().then(setNotes)
     }, [])
+
+    useEffect(() => {
+        console.log('bgClr', bgClr)
+    }, [bgClr])
 
     function onSetNotes(note) {
         console.log('note bitch', note)
@@ -27,11 +31,12 @@ export function NoteIndex() {
     }
 
     function onPaletteButtonClick(color, noteId) {
-        console.log(color, noteId)
         const note = notes.find((note) => note.id === noteId)
         note.style.backgroundColor = color
-
-        console.log(note)
+        noteService.save(note).then(() => {
+            noteService.query().then(setNotes)
+        })
+        setBgClr({ backgroundColor: color, noteId: noteId })
     }
 
     return (

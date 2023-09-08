@@ -9,7 +9,7 @@ export function NoteBtnsPreview({ note, onPaletteButtonClick }) {
         { storm: '#aeccdc' },
         { oval: '#d3bfdb' },
         { pink: '#f6e2dd' },
-        { none: 'none' },
+        { none: '#fff' },
     ]
 
     function handlePaletteButtonClick(color, noteId) {
