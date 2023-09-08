@@ -54,7 +54,9 @@ export function NoteImgForm({ onSaveNote, handleChange, noteEdit }) {
                 value={noteEdit.info.txt}
                 placeholder="Write note..."
             />
-            <button>add</button>
+            <button type="submit" className="btn btn-close-and-send-form">
+                Close
+            </button>
         </form>
     )
 }

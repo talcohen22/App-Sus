@@ -3,4 +3,8 @@
 
     --mainClrGray: #f6f8fc;
     --blackClr: #000000;
+
+    --btnBgClr: rgba(0, 0, 0, 0.055);
+    --btnShadowClr: rgba(0, 0, 0, 0.027);
+    --btnClr: rgba(8, 8, 8, 0.548);
 }

@@ -9,10 +9,7 @@ const { useState, useEffect } = React
 export function NoteEdit({ onSetNotes }) {
     const [noteEdit, setNoteEdit] = useState(noteService.getEmptyNote())
     const [dynType, setDynType] = useState('')
-
-    //FIXME: TODO THE BTN HOVER GOOD
     const [isFormActive, setIsFormActive] = useState(false)
-    const [isExtend, setIsExtend] = useState(false)
 
     useEffect(() => {
         console.log('dynType:', dynType)
@@ -20,7 +17,8 @@ export function NoteEdit({ onSetNotes }) {
     }, [dynType])
 
     function toggleIsFormActive() {
-        if (!isExtend) setIsFormActive((prevIsFormActive) => !prevIsFormActive)
+        console.log('isFormActive2', isFormActive)
+        if (!isFormActive) setIsFormActive((prevIsFormActive) => !prevIsFormActive)
     }
 
     function handleButtonClick(newDynType) {
@@ -62,8 +60,9 @@ export function NoteEdit({ onSetNotes }) {
                 noteEdit.info.todos = note.todos || []
                 break
         }
-        console.log('noteEdit after! ! !', noteEdit)
         onSetNotes(noteEdit)
+        setDynType('NoteDefaultForm')
+        if (isFormActive) setIsFormActive((prevIsFormActive) => !prevIsFormActive)
     }
 
     let formComponent

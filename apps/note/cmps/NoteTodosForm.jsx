@@ -54,7 +54,9 @@ export function NoteTodosForm({ onSaveNote, handleChange, noteEdit }) {
             <button type="button" onClick={handleAddItem}>
                 +
             </button>
-            <button type="submit">Add</button>
+            <button type="submit" className="btn btn-close-and-send-form">
+                Close
+            </button>
         </form>
     )
 }
