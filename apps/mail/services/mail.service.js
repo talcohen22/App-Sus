@@ -375,7 +375,7 @@ const EMAILS = [
         from: 'support@company.com',
         to: 'user@appsus.com',
         isMarked: false,
-    }   
+    }
 ]
 
 const loggedinUser = {
@@ -419,6 +419,7 @@ function query(filterBy) {
         if (filterBy.mailType === 'inbox') return emails.filter(email => email.from !== loggedinUser.email && !email.removedAt)
         if (filterBy.mailType === 'sent') return emails.filter(email => email.from === loggedinUser.email && !email.removedAt)
         if (filterBy.mailType === 'trash') return emails.filter(email => email.removedAt)
+        if (filterBy.searchKey) return emails.filter(email => (email.body.toLowerCase().includes(filterBy.searchKey.toLowerCase()) || email.subject.toLowerCase().includes(filterBy.searchKey.toLowerCase())) && !email.removedAt)
     })
 }
 
@@ -435,7 +436,7 @@ function post(email) {
 }
 
 function getCountUnreadMessages() {
-    return query({mailType: 'inbox'}).then(emails => {
+    return query({ mailType: 'inbox' }).then(emails => {
         return emails.filter(email => !email.isRead).length
     })
 }

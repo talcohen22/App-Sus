@@ -20,6 +20,7 @@ export function App() {
                 <Route path="/mail/:mailType" element={<MailIndex />} />
                 <Route path="/mail/:mailType/:emailId" element={<MailDetails />} />
                 <Route path="/note" element={<NoteIndex />} />
+                <Route path="/mail/search/:searchKey" element={<MailIndex />} ></Route>
             </Routes>
         </section>
     </Router>

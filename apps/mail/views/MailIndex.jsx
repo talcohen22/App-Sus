@@ -11,7 +11,7 @@ export function MailIndex() {
 
     const params = useParams()
     const [emails, setEmails] = useState(null)
-    const [filterBy, setFilterBy] = useState({ mailType: params.mailType })
+    const [filterBy, setFilterBy] = useState({ mailType: params.mailType, searchKey: params.searchKey })
     const [countUnreadMessages, setCountUnreadMessages] = useState(0)
     const [isNewMsgModalOpen, setIsNewMsgModalOpen] = useState(false)
     const isEmailMarked = useRef(false)
@@ -57,11 +57,15 @@ export function MailIndex() {
         })
     }
 
+    function onSetFilterBy(searchKey){
+        setFilterBy({searchKey})
+    }
+
     if (!emails) return
     return (
         <section >
             <div className='mail-filter'>
-                <MailFilter/>
+                <MailFilter onSetFilterBy={onSetFilterBy}/>
             </div>
             <div className="mails-body">
                 <MailFeatures onSetMailsType={onSetMailsType} openNewMsgModal={openNewMsgModal} countUnreadMessages={countUnreadMessages} />
@@ -74,7 +78,6 @@ export function MailIndex() {
                     {(isEmailMarked.current === true) && <i className="fa-solid fa-trash-can" onClick={onRemoveEmails}></i>}
                 </div>
             </div>
-
         </section>
     )
 }

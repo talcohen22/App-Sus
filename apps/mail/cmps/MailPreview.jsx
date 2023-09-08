@@ -24,10 +24,11 @@ export function MailPreview({ email, filterBy, markMail }) {
     }
 
     function onMarkMail(ev) {
-        navigate(`/mail/${params.mailType}`)
+        const rPath = params.mailType ? params.mailType : params.searchKey ? params.searchKey : 'inbox'
+        navigate(`/mail/${rPath}`)
         mailService.setIsMarked(email, ev.target.checked).then(res => {
             markMail()
-            navigate(`/mail/${params.mailType}`)
+            navigate(`/mail/${rPath}`)
         })
     }
 
