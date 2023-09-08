@@ -1,11 +1,22 @@
 /* note list */
+.note-card {
+    break-inside: avoid;
+}
 .note-card > * {
     list-style: none;
-    break-inside: avoid;
+    margin: 0%;
 }
 
 .note-card p {
     padding-left: 10px;
+}
+
+.note-context {
+    padding: 0%;
+}
+
+.note-btns .btn {
+    padding: 0.5rem;
 }
 
 .note-list {
