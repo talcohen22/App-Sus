@@ -8,15 +8,9 @@ export function NoteList({ notes, onPaletteButtonClick }) {
         <section className="note-list">
             {notes.map((note) => (
                 <div
-                    className="note-card"
+                    className={`note-card ${note.style.backgroundColor === '#fff' ? 'with-border' : ''}`}
                     key={note.id}
-                    style={{
-                        backgroundColor: note.style.backgroundColor,
-                        border:
-                            note.style.backgroundColor === '#fff'
-                                ? '0.5px solid rgba(35, 34, 34, 0.18)'
-                                : '0.5px solid rgba(0, 0, 0, 0)',
-                    }}>
+                    style={{ backgroundColor: note.style.backgroundColor }}>
                     <ul className="note-context">
                         <NotePreview note={note} />
                     </ul>

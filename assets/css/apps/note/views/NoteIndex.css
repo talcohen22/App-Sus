@@ -7,4 +7,11 @@ img {
     border-radius: 8px;
     padding: 0;
     margin: 0 auto 15px auto;
+    border: 0.5px solid transparent;
+    transition: background-color 1s ease;
+    transition: border 1s ease;
+}
+
+.note-card.with-border {
+    border: 0.5px solid rgba(35, 34, 34, 0.18);
 }
