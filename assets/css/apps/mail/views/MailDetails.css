@@ -1,8 +1,55 @@
+.mail-details-bgc {
+    background-color: #eef3fa;
+    min-height: calc(100vh - 80px);
+}
+
+.mail-details-container {
+    display: grid;
+    grid-template-areas:
+        'narrow-back more-actions'
+        'title       title'
+        'user-img    from'
+        'to          to'
+        'body        body'
+        'btns        btns';
+    background-color: white;
+    border-radius: 30px;
+    width: calc(100% - 50px);
+    margin: auto;
+}
+
+.mail-details-container h1 {
+    grid-column: 2/-1;
+}
+
+.mail-details-container .sent-to {
+    margin-top: 0;
+    grid-column: 2/-1;
+}
+
+.mail-details-container .mail-body {
+    grid-column: 2/-1;
+}
+
+.mail-details-container .replay-forward-btn {
+    grid-column: 2/-1;
+}
+
+.back-narrow,
+.user-img {
+    justify-self: end;
+    margin-inline-end: 20px;
+}
+
+.back-narrow {
+    margin-inline-end: 30px;
+}
+
 .mail-details-container * {
     font-family: sans-serif;
 }
 
-.mail-details-container > *{
+.mail-details-container>* {
     margin-block-end: 30px;
 }
 
@@ -22,16 +69,17 @@
     /* padding-block: 30px; */
 }
 
+.actions i:hover{
+    border-radius: 50%;
+    background-color: #e9e9e9;
+}
+
 .actions i {
     cursor: pointer;
     padding: 5px;
     font-size: 17px;
     color: #474747;
 }
-
-/* .mail-details-container h1{
-    margin-block-end: 20px;
-} */
 
 .sent-by {
     display: flex;
@@ -45,22 +93,29 @@
     font-size: 0.8rem;
 }
 
-.replay-forward-btn > *{
-    color: #474747;;
+.replay-forward-btn >*:hover{
+    background-color: #eeeeee;
+}
+
+.replay-forward-btn>* {
+    color: #474747;
+    ;
     background-color: white;
     padding: 10px;
     border-radius: 555px;
-    border: 1px solid #474747;;
+    border: 1px solid #474747;
+    cursor: pointer;
+    margin-top: 30px;
 }
 
-.replay-forward-btn button:first-child{
+.replay-forward-btn button:first-child {
     margin-inline-end: 5px;
 }
 
-.replay-forward-btn button{
+.replay-forward-btn button {
     padding-inline: 15px;
 }
 
-.replay-forward-btn button i{
+.replay-forward-btn button i {
     margin-inline-end: 10px;
 }

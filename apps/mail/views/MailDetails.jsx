@@ -30,33 +30,39 @@ export function MailDetails() {
 
     if (!email) return
     return (
-        <div className="mail-details-container">
-            <div className='actions'>
-                <i onClick={() => onBack()} className="fa-solid fa-arrow-left-long back-btn" ></i>
-                <i class="fa-regular fa-envelope" onClick={() => markAsUnRead()} title="Mark as unread"></i>
-                <i class="fa-solid fa-trash-can"></i>
-                <i class="fa-solid fa-tag"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-solid fa-gear"></i>
-                <i class="fa-solid fa-arrow-right-to-bracket fa-rotate-90"></i>
+        <div className="mail-details-bgc">
+
+            <div className="mail-details-container">
+                <div className='actions back-narrow'>
+                    <i onClick={() => onBack()} className="fa-solid fa-arrow-left-long back-btn" ></i>
+                </div>
+                <div className='actions'>
+                    <i className="fa-regular fa-envelope" onClick={() => markAsUnRead()} title="Mark as unread"></i>
+                    <i className="fa-solid fa-trash-can"></i>
+                    <i className="fa-solid fa-tag"></i>
+                    <i className="fa-regular fa-star"></i>
+                    <i className="fa-solid fa-gear"></i>
+                    <i className="fa-solid fa-arrow-right-to-bracket fa-rotate-90"></i>
+                </div>
+
+                <h1>{email.subject}</h1>
+
+                <div className='sent-by user-img'>
+                    <img src="../../../assets/img/mail/user.png" alt="" />
+                </div>
+                <div className='sent-by'>
+                    <p>{"<" + email.from + ">"}</p>
+                </div>
+                <p className='sent-to'>{"to " + email.to}</p>
+
+                <p className='mail-body'>{email.body}</p>
+
+                <div className='replay-forward-btn'>
+                    <button><i className="fa-solid fa-reply"></i>Replay</button>
+                    <button><i className="fa-solid fa-reply fa-flip-horizontal"></i>Forward</button>
+                </div>
+
             </div>
-
-            <h1>{email.subject}</h1>
-
-            <div className='sent-by'>
-                <img src="../../../assets/img/mail/user.png" alt="" />
-                <p>{"<" + email.from + ">"}</p>
-            </div>
-            <p>{"to " + email.to}</p>
-
-            <p>{email.body}</p>
-
-            <div className='replay-forward-btn'>
-                <button><i class="fa-solid fa-reply"></i>Replay</button>
-                <button><i class="fa-solid fa-reply fa-flip-horizontal"></i>Forward</button>
-            </div>
-
-            {/* <button onClick={() => markAsUnRead()}>Mark as Unread</button> */}
         </div>
     )
 }
