@@ -59,8 +59,8 @@ export function NoteIndex() {
     return (
         <main className="note-main-layout">
             <NoteEdit onSetNotes={onSetNotes} />
-            <NoteFilter />
-            <hr />
+            {/* <NoteFilter />
+            <hr /> */}
             <NoteList
                 notes={notes}
                 onPaletteButtonClick={onPaletteButtonClick}

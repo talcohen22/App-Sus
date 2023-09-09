@@ -1,29 +1,37 @@
-import { NotePreview } from '../cmps/NotePreview.jsx'
-import { NoteBtnsPreview } from '../cmps/NoteBtnsPreview.jsx'
+import { NoteCard } from '../cmps/NoteCard.jsx'
 
 export function NoteList({ notes, onPaletteButtonClick, onRemoveNote, onTogglePin }) {
     if (!notes || !notes.length) return <div> loading.. </div>
 
+    const pinnedNotes = notes.filter((note) => note.isPinned)
+    const unpinnedNotes = notes.filter((note) => !note.isPinned)
+
     return (
         <section className="note-list">
-            {notes.map((note) => (
-                <div
-                    className={`note-card ${note.style.backgroundColor === '#fff' ? 'with-border' : ''}`}
-                    key={note.id}
-                    style={{ backgroundColor: note.style.backgroundColor }}>
-                    <ul className="note-context">
-                        <NotePreview note={note} />
-                    </ul>
-                    <div className="note-btns">
-                        <NoteBtnsPreview
-                            note={note}
-                            onPaletteButtonClick={onPaletteButtonClick}
-                            onRemoveNote={onRemoveNote}
-                            onTogglePin={onTogglePin}
-                        />
-                    </div>
-                </div>
-            ))}
+            <p className="title-note-list">Pinned notes</p>
+            <section className="note-pinned">
+                {pinnedNotes.map((note) => (
+                    <NoteCard
+                        key={note.id}
+                        note={note}
+                        onPaletteButtonClick={onPaletteButtonClick}
+                        onRemoveNote={onRemoveNote}
+                        onTogglePin={onTogglePin}
+                    />
+                ))}
+            </section>
+            <p className="title-note-list">Last notes</p>
+            <section className="note-unpinned">
+                {unpinnedNotes.map((note) => (
+                    <NoteCard
+                        key={note.id}
+                        note={note}
+                        onPaletteButtonClick={onPaletteButtonClick}
+                        onRemoveNote={onRemoveNote}
+                        onTogglePin={onTogglePin}
+                    />
+                ))}
+            </section>
         </section>
     )
 }

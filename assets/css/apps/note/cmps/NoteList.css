@@ -20,7 +20,18 @@
     padding: 0.5rem;
 }
 
-.note-list {
+.note-pinned {
     columns: 240px;
     column-gap: 15px;
+
+    margin-bottom: 90px;
+}
+.note-unpinned {
+    columns: 240px;
+    column-gap: 15px;
+}
+
+.title-note-list {
+    font-size: 0.625rem;
+    margin-inline-start: 10px;
 }
