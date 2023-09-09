@@ -16,13 +16,14 @@ export function MailIndex() {
     const [isNewMsgModalOpen, setIsNewMsgModalOpen] = useState(false)
     const isEmailMarked = useRef(false)
     const navigate = useNavigate()
+    let [menuOpen, setMenuOpen] = useState('')
 
     useEffect(() => {
         mailService.query(filterBy).then(emails => {
             setEmails(emails)
             mailService.getCountUnreadMessages().then(setCountUnreadMessages)
         })
-    }, [filterBy, isNewMsgModalOpen])
+    }, [filterBy, isNewMsgModalOpen, menuOpen])
 
     function onSetMailsType(type) {
         isEmailMarked.current = false
@@ -52,16 +53,15 @@ export function MailIndex() {
     }
 
     function onRemoveEmails() {
-        console.log(params.mailType);
-        if (params.mailType === 'trash'){
+        if (params.mailType === 'trash') {
             const userSure = confirm('Delete forever?')
             if (!userSure) return
         }
-        if (params.mailType === 'inbox' || params.mailType === 'sent' || params.mailType === 'trash'){
+        if (params.mailType === 'inbox' || params.mailType === 'sent' || params.mailType === 'trash') {
             mailService.removeEmails().then(() => {
                 setFilterBy({ ...filterBy })
             })
-        }  
+        }
     }
 
     function onSetFilterBy(newFilterBy) {
@@ -72,14 +72,22 @@ export function MailIndex() {
         }
     }
 
+    function onSortBy({ target }) {
+        setFilterBy({...filterBy , sortBy: target.value})
+    }
+
+    function toggleMenu() {
+        (menuOpen === '') ? setMenuOpen('menu-open') : setMenuOpen('')
+    }
+
     if (!emails) return
     return (
-        <section >
+        <section className='mail-index-container' >
             <div className='mail-filter'>
-                <MailFilter onSetFilterBy={onSetFilterBy} />
+                <MailFilter onSetFilterBy={onSetFilterBy} toggleMenu={toggleMenu} onSortBy={onSortBy} />
             </div>
             <div className="mails-body">
-                <MailFeatures onSetMailsType={onSetMailsType} openNewMsgModal={openNewMsgModal} countUnreadMessages={countUnreadMessages} />
+                <MailFeatures onSetMailsType={onSetMailsType} openNewMsgModal={openNewMsgModal} countUnreadMessages={countUnreadMessages} menuOpen={menuOpen} />
 
                 <MailList emails={emails} filterBy={filterBy} markMail={markMail} />
 

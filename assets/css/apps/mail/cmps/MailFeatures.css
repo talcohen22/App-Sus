@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 5px; 
 
     background-color: #eef3fa;
     width: 150px;
     min-height: calc(100vh - 80px);
+    padding-inline: 10px;
 }
 
 .mails-body .features div {

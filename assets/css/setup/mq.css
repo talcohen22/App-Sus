@@ -1,0 +1,53 @@
+@media (max-width: 680px) {
+    .btn-toggle-menu {
+        display: block;
+        height: 40px;
+        width: 40px;
+    }
+
+    .filter-by-form {
+        display: grid;
+        grid-template-areas:
+            'search sort'
+            'unread unread';
+        justify-content: start;
+        margin-inline-start: 20px;
+        gap: 5px;
+    }
+
+    .sort-by {
+        grid-area: sort;
+    }
+
+    .search-mail-container {
+        min-width: 120px;
+    }
+
+    .mails-body .features.menu-open{
+        transform: translateX(0);
+    }
+
+    .mails-body .features{
+        transform: translateX(-100%);
+        box-shadow: 3px 20px 17px rgb(0 0 0 / 50%);
+        position: absolute; 
+        top:0;
+        bottom: 0;
+        left: 0;
+        transition: transform 0.6s;
+    }
+
+    .email-td{
+        display: none;
+    }
+
+    .new-message-container{
+        width: 70%;
+        height: 65%;
+    }
+
+    html{
+        font-size: 0.9rem;
+    }
+
+}
