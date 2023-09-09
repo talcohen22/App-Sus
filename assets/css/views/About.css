@@ -1,4 +1,4 @@
-.about{
+.about {
     width: 80vw;
     max-width: 750px;
     padding: 20px;
@@ -19,31 +19,29 @@
 .team {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 30vw 30vw;
-    grid-template-rows: 30px 200px 20px;
-    place-items: center;
-    place-content: center;
-    gap: 20px;
-    padding-block: 30px;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .team-header {
-    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
 }
 
-.tal-img {
-    grid-row: 2/3;
-}
-
-.about span{
+.about span {
     font-size: 25px;
     font-weight: bold;
 }
 
-.about p{
+.about p {
     line-height: 27px;
 }
 
-.team p{
+.team p {
     text-align: center;
 }

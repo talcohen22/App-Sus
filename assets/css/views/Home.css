@@ -1,1 +1,18 @@
- /* home */
+/* home */
+/* .home {
+    background-image: url('../../img/app/bg-home-google.jpg');
+} */
+
+.home {
+    /* position: relative; */
+    height: calc(100vh - 65px);
+    width: 100vw;
+    background-color: #fdf7df;
+    display: grid;
+    place-content: center;
+}
+
+.home-img {
+    width: 35vw;
+    animation: fadeInUp 4s;
+}
