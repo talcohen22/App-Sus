@@ -8,7 +8,7 @@ export function NoteList({
     onSaveTodo,
     onEditNote,
 }) {
-    if (!notes || !notes.length) return <div> loading.. </div>
+    if (!notes || !notes.length) return
 
     const pinnedNotes = notes.filter((note) => note.isPinned)
     const unpinnedNotes = notes.filter((note) => !note.isPinned)

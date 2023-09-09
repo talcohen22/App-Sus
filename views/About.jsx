@@ -17,18 +17,22 @@ export function About() {
                 expect a dynamic and evolving tool that adapts to your evolving needs.
             </p>
 
+            <h2 className="team-header">Our incredible team: </h2>
             <div className="team">
-                <h2 className="team-header">Our incredible team: </h2>
-                <img className="stav-img" src="../assets/img/stav.jpeg" alt="" />
-                <p className="stav-description">
-                    Stav Cohen <br />
-                    Front-End Developer
-                </p>
-                <img className="tal-img" src="../assets/img/tal.jpeg" alt="" />
-                <p className="tal-description">
-                    Tal Cohen <br />
-                    Back-End Developer
-                </p>
+                <div className="member member1">
+                    <img className="stav-img" src="../assets/img/stav.jpeg" alt="" />
+                    <p className="stav-description">
+                        Stav Cohen <br />
+                        Front-End Developer
+                    </p>
+                </div>
+                <div className="member member2">
+                    <img className="tal-img" src="../assets/img/tal.jpeg" alt="" />
+                    <p className="tal-description">
+                        Tal Cohen <br />
+                        Back-End Developer
+                    </p>
+                </div>
             </div>
 
             <p className="join-us">
