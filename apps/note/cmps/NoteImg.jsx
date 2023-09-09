@@ -3,7 +3,7 @@ export function NoteImg({ note }) {
     return (
         <React.Fragment>
             {info.img !== undefined && <img src={info.img} alt="imgggg" />}
-            {title !== undefined && <p>{title}</p>}
+            {title !== undefined && <p className="bold-title">{title}</p>}
             {info.txt !== undefined && <p>{info.txt}</p>}
         </React.Fragment>
     )

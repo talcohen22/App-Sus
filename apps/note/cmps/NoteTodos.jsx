@@ -15,7 +15,7 @@ export function NoteTodos({ note, onSaveTodo }) {
 
     return (
         <div>
-            <p>{title}</p>
+            <p className="bold-title">{title}</p>
             <ul className="todo-list-card">
                 {todosState.map((todo, index) => (
                     <li

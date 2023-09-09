@@ -57,3 +57,9 @@
 .line-through {
     text-decoration: line-through;
 }
+
+.bold-title {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.62);
+    margin-bottom: 0.5rem;
+}

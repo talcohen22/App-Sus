@@ -30,7 +30,7 @@ export function NoteTodosForm({ onSaveNote, handleChange, noteEdit }) {
     return (
         <form onSubmit={handleSubmit}>
             <input
-                className="bar-input"
+                className="bar-input "
                 onChange={handleChange}
                 type="text"
                 name="title"

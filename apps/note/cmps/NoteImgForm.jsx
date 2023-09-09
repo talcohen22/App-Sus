@@ -25,6 +25,11 @@ export function NoteImgForm({ onSaveNote, handleChange, noteEdit }) {
         })
     }
 
+    function autoExpandTextarea(element) {
+        element.style.height = 'auto'
+        element.style.height = element.scrollHeight + 'px'
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <input
@@ -37,7 +42,7 @@ export function NoteImgForm({ onSaveNote, handleChange, noteEdit }) {
             {file && <img src={file} alt="Selected Image" />}
 
             <input
-                className="bar-input"
+                className="bar-input "
                 onChange={handleChange}
                 type="text"
                 name="title"
@@ -45,14 +50,19 @@ export function NoteImgForm({ onSaveNote, handleChange, noteEdit }) {
                 id="title"
                 placeholder="Title"
             />
-            <input
+
+            <textarea
                 className="bar-input"
-                onChange={handleChange}
+                onChange={(e) => {
+                    handleChange(e)
+                    autoExpandTextarea(e.target)
+                }}
                 type="text"
                 name="txt"
                 id="text"
                 value={noteEdit.info.txt}
                 placeholder="Write note..."
+                style={{ resize: 'none' }}
             />
             <button type="submit" className="btn btn-close-and-send-form">
                 Close

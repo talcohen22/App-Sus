@@ -50,7 +50,7 @@ function _createNotes() {
             {
                 id: 'n103',
                 type: 'NoteTodos',
-                isPinned: false,
+                isPinned: true,
                 title: 'Weekend Plans',
                 style: {
                     backgroundColor: '#b4ddd3',
@@ -68,7 +68,7 @@ function _createNotes() {
                 id: 'n104',
                 createdAt: 1631054400,
                 type: 'NoteTxt',
-                isPinned: true,
+                isPinned: false,
                 style: {
                     backgroundColor: '#faafa8',
                 },
@@ -88,26 +88,14 @@ function _createNotes() {
                     backgroundColor: '#b4ddd3',
                 },
             },
-            {
-                id: 'n105',
-                type: 'NoteImg',
-                isPinned: false,
-                title: 'Travel Goals',
-                info: {
-                    img: 'https://images.immediate.co.uk/production/volatile/sites/30/2021/03/Cacio-e-Pepe-e44b9f8.jpg?quality=90&resize=556,505',
-                },
-                style: {
-                    backgroundColor: '#fff',
-                },
-            },
 
             {
                 id: 'n108',
                 type: 'NoteImg',
-                isPinned: false,
+                isPinned: true,
                 title: 'Soccer Game Tomorrow',
                 info: {
-                    img: 'https://image-and-file-storage.storage.googleapis.com/images/library/large/trek-wahoo-26-345352-3363194-1.png',
+                    img: 'https://images.augustman.com/wp-content/uploads/sites/3/2022/12/22161604/messi-vs-ronaldo-1.jpeg?tr=w-1200,h-900',
                 },
                 style: {
                     backgroundColor: '#aeccdc',
@@ -132,7 +120,7 @@ function _createNotes() {
                 id: 'n107',
                 createdAt: 1631140800,
                 type: 'NoteTxt',
-                isPinned: true,
+                isPinned: false,
                 style: {
                     backgroundColor: '#aeccdc',
                 },
@@ -171,7 +159,7 @@ function _createNotes() {
             {
                 id: 'n112',
                 type: 'NoteTodos',
-                isPinned: false,
+                isPinned: true,
                 title: 'Home Improvement',
                 style: {
                     backgroundColor: '#aeccdc',
@@ -179,7 +167,7 @@ function _createNotes() {
                 info: {
                     todos: [
                         { txt: 'Paint living room', doneAt: null },
-                        { txt: 'Fix leaky faucet', doneAt: null },
+                        { txt: 'Fix leaky faucet', doneAt: 1631313600 },
                     ],
                 },
             },
@@ -193,30 +181,6 @@ function _createNotes() {
                 },
                 info: {
                     txt: 'Plan vacation itinerary.',
-                },
-            },
-            {
-                id: 'n114',
-                type: 'NoteImg',
-                isPinned: false,
-                title: 'Nature Retreat',
-                info: {
-                    img: 'https://img.ice.co.il/giflib/news/15102214.jpg',
-                },
-                style: {
-                    backgroundColor: '#f39f76',
-                },
-            },
-            {
-                id: 'n111',
-                type: 'NoteImg',
-                isPinned: false,
-                title: 'Healthy Eating Plan',
-                info: {
-                    img: 'https://www.codingninjas.com/blog/wp-content/uploads/2020/10/Blog-2020-10-01T172831.659.png',
-                },
-                style: {
-                    backgroundColor: '#b4ddd3',
                 },
             },
             {
@@ -246,18 +210,7 @@ function _createNotes() {
                     txt: 'Call the plumber!',
                 },
             },
-            {
-                id: 'n117',
-                type: 'NoteImg',
-                isPinned: false,
-                title: 'Packing for a Trip',
-                info: {
-                    img: 'https://www.visitagnes1770.com.au/wp-content/uploads/2020/06/Agnes-Water-Main-Beach.jpg',
-                },
-                style: {
-                    backgroundColor: '#f6e2dd',
-                },
-            },
+
             {
                 id: 'n118',
                 type: 'NoteTodos',
@@ -271,6 +224,18 @@ function _createNotes() {
                         { txt: 'Go for a run', doneAt: null },
                         { txt: 'Do yoga', doneAt: null },
                     ],
+                },
+            },
+            {
+                id: 'n117',
+                type: 'NoteImg',
+                isPinned: false,
+                title: 'Packing for a Trip',
+                info: {
+                    img: 'https://www.visitagnes1770.com.au/wp-content/uploads/2020/06/Agnes-Water-Main-Beach.jpg',
+                },
+                style: {
+                    backgroundColor: '#f6e2dd',
                 },
             },
             {
