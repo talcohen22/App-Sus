@@ -6,6 +6,7 @@
 .note-card {
     break-inside: avoid;
     break-inside: avoid-column;
+    white-space: pre-line;
 }
 .note-card > * {
     list-style: none;
@@ -17,7 +18,6 @@
 }
 
 .note-card:hover {
-    cursor: pointer;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 

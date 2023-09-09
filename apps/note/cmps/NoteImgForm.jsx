@@ -1,6 +1,6 @@
 const { useState, useRef, useEffect } = React
 
-export function NoteImgForm({ onSaveNote, handleChange, noteEdit }) {
+export function NoteImgForm({ onSaveNote, handleChange, noteInput }) {
     const [file, setFile] = useState()
     const fileInputRef = useRef(null)
 
@@ -10,7 +10,7 @@ export function NoteImgForm({ onSaveNote, handleChange, noteEdit }) {
     }
 
     useEffect(() => {
-        console.log('note', noteEdit)
+        console.log('note', noteInput)
         if (fileInputRef.current) {
             fileInputRef.current.click()
         }
@@ -19,8 +19,8 @@ export function NoteImgForm({ onSaveNote, handleChange, noteEdit }) {
     function handleSubmit(ev) {
         ev.preventDefault()
         onSaveNote({
-            title: noteEdit.title,
-            text: noteEdit.info.txt,
+            title: noteInput.title,
+            text: noteInput.info.txt,
             file,
         })
     }
@@ -46,7 +46,7 @@ export function NoteImgForm({ onSaveNote, handleChange, noteEdit }) {
                 onChange={handleChange}
                 type="text"
                 name="title"
-                value={noteEdit.title}
+                value={noteInput.title}
                 id="title"
                 placeholder="Title"
             />
@@ -60,7 +60,7 @@ export function NoteImgForm({ onSaveNote, handleChange, noteEdit }) {
                 type="text"
                 name="txt"
                 id="text"
-                value={noteEdit.info.txt}
+                value={noteInput.info.txt}
                 placeholder="Write note..."
                 style={{ resize: 'none' }}
             />

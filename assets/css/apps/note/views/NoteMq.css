@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+    .note-main-layout {
+        margin: 10px;
+    }
+    .bar-input {
+        width: 50vw;
+    }
+
+    .note-edit {
+        width: 90vw !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .note-list {
+        margin-inline: 130px;
+        margin-bottom: 100px;
+    }
+}
