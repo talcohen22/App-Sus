@@ -1,33 +1,41 @@
 header {
     background: var(--mainClrGray);
-    border-bottom: 1px solid var(--blackClr);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .app-header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    /* padding: 20px 0; */
 }
 
-nav a {
-    margin: 0.5em;
+.main-logo {
+    padding-inline-start: 15px;
 }
 
-nav a:active {
-    color: purple;
+.note-logo {
+    padding-inline: 10px;
 }
 
-nav a.active {
-    color: darkblue;
-    font-weight: bold;
-    text-decoration: overline;
+.logo {
+    width: auto;
+    padding: 10px;
 }
 
 .app-header img {
-    height: 30px;
+    height: 60px;
 }
 
 .app-header nav {
     display: flex;
     align-items: center;
 }
+
+/* <img
+                    className="logo"
+                    src="./assets/img/app/workspace.png"
+                    alt="workspace_logo"
+                /> */
