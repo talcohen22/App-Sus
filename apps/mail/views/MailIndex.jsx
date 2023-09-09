@@ -72,6 +72,10 @@ export function MailIndex() {
         }
     }
 
+    function onSortBy({ target }) {
+        setFilterBy({...filterBy , sortBy: target.value})
+    }
+
     function toggleMenu() {
         (menuOpen === '') ? setMenuOpen('menu-open') : setMenuOpen('')
     }
@@ -80,7 +84,7 @@ export function MailIndex() {
     return (
         <section className='mail-index-container' >
             <div className='mail-filter'>
-                <MailFilter onSetFilterBy={onSetFilterBy} toggleMenu={toggleMenu} />
+                <MailFilter onSetFilterBy={onSetFilterBy} toggleMenu={toggleMenu} onSortBy={onSortBy} />
             </div>
             <div className="mails-body">
                 <MailFeatures onSetMailsType={onSetMailsType} openNewMsgModal={openNewMsgModal} countUnreadMessages={countUnreadMessages} menuOpen={menuOpen} />

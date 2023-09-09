@@ -660,6 +660,15 @@ function createEmail(to, subject, body) {
 function query(filterBy) {
     return storageService.query(EMAIL_KEY).then(emails => {
         if (filterBy.isShowUnread) emails = emails.filter(email => email.isRead === false)
+        if (filterBy.sortBy) {
+            const key = filterBy.sortBy
+            emails = emails.sort((email1, email2) => {
+                if (email1[key] > email2[key]) return 1
+                if (email2[key] > email1[key]) return -1
+                else return 0
+
+            })
+        }
         if (filterBy.mailType === 'inbox') return emails.filter(email => email.from !== loggedinUser.email && !email.removedAt)
         if (filterBy.mailType === 'sent') return emails.filter(email => email.from === loggedinUser.email && !email.removedAt)
         if (filterBy.mailType === 'trash') return emails.filter(email => email.removedAt)
@@ -669,10 +678,6 @@ function query(filterBy) {
 
 function get(emailId) {
     return storageService.get(EMAIL_KEY, emailId)
-    // .then(email => {
-    //     email = _setNextPrevCarId(email)
-    //     return email
-    // })
 }
 
 function post(email) {
@@ -705,7 +710,7 @@ function removeEmails() {
     return storageService.query(EMAIL_KEY).then(emails => {
         emails.forEach(email => {
             if (email.isMarked && !email.removedAt) email.removedAt = Date.now()
-            if (email.isMarked && email.removedAt) { ////////////////////////////////////////////gettttttttttttttttttttttttttttt
+            if (email.isMarked && email.removedAt) { 
                 let emails = utilService.loadFromStorage(EMAIL_KEY)
                 const idx = emails.findIndex(currEmail => currEmail.id === email.id)
                 emails.splice(idx, 1)

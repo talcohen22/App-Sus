@@ -5,7 +5,6 @@ export function MailFeatures({ openNewMsgModal, countUnreadMessages, onSetMailsT
 
     const tab = useParams().mailType
 
-    console.log(menuOpen);
     return (
         <aside className={"features " + menuOpen}>
             <div className="compose-feature" onClick={() => openNewMsgModal(true)}>

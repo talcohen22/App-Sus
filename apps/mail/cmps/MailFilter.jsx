@@ -1,11 +1,11 @@
 const { useNavigate, useParams } = ReactRouterDOM
-const { useState , useRef} = React
+const { useState, useRef } = React
 
-export function MailFilter({ onSetFilterBy, toggleMenu }) {
+export function MailFilter({ onSetFilterBy, toggleMenu , onSortBy }) {
 
     let isShowUnread = useRef(false)
     const [searchKeyState, setSearchKeyState] = useState(null)
-    
+
     const navigate = useNavigate()
     const params = useParams()
 
@@ -36,10 +36,10 @@ export function MailFilter({ onSetFilterBy, toggleMenu }) {
                     <input type="checkbox" name="isShowUnread" onChange={onSetIsShowUnread} />
                 </div>
                 <div className="sort-by">
-                    <select name="" id="">
+                    <select name="" id="" onChange={onSortBy}>
                         <option value="">Sort By</option>
                         <option value="subject">Subject</option>
-                        <option value="date">Date</option>
+                        <option value="sentAt">Date</option>
                     </select>
                 </div>
             </form>
