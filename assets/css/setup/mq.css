@@ -43,11 +43,10 @@
 
     .new-message-container{
         width: 70%;
-        height: 65%;
+        height: 70%;
     }
 
     html{
         font-size: 0.9rem;
     }
-
 }

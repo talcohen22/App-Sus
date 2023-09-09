@@ -32,6 +32,7 @@
 .mail-details-container .mail-body {
     grid-column: 2/-1;
     max-width: 900px;
+    white-space: pre-line;
 }
 
 .mail-details-container .replay-forward-btn {

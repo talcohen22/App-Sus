@@ -1,0 +1,46 @@
+.about{
+    max-width: 750px;
+    padding: 20px;
+    background-color: rgb(255 159 134 / 22%);
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.about img {
+    width: 200px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.team {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 250px 250px;
+    grid-template-rows: 30px 200px 20px;
+    place-items: center;
+    place-content: center;
+    gap: 20px;
+    padding-block: 30px;
+}
+
+.team-header {
+    grid-column: 1 / -1;
+}
+
+.tal-img {
+    grid-row: 2/3;
+}
+
+.about span{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.about p{
+    line-height: 27px;
+}
+
+.team p{
+    text-align: center;
+}

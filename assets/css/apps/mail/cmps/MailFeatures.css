@@ -4,7 +4,7 @@
     align-items: center;
     gap: 5px; 
 
-    background-color: #eef3fa;
+    background-color: var(--mainClrGray);
     width: 150px;
     min-height: calc(100vh - 80px);
     padding-inline: 10px;

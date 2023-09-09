@@ -14,7 +14,7 @@
     justify-content: center;
     width: 20px;
     min-height: calc(100vh - 80px);
-    background-color: #eef3fa;
+    background-color: var(--mainClrGray);
     padding: 5px;
  }
  
