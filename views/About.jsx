@@ -1,6 +1,3 @@
-// import {} from '../assets/img/'
-
-
 export function About() {
     return <section className="about">
         <h1>Welcome to our exciting project, AppSus ! </h1>
@@ -12,7 +9,7 @@ export function About() {
             <img className="stav-img" src="../assets/img/stav.jpeg" alt="" />
             <p className="stav-description">Stav Cohen <br />Front-End Developer</p>
             <img className="tal-img" src="../assets/img/tal.jpeg" alt="" />
-            <p className="tal-description">Tal Cohen <br />Beck-End Developer</p>
+            <p className="tal-description">Tal Cohen <br />Back-End Developer</p>
         </div>
 
         <p className="join-us"><span>Join us</span> on this exciting journey with AppSus and unlock the full potential of your email and note-taking experience. Whether you're an individual striving for better organization or a team looking to boost collaboration, AppSus is here to revolutionize the way you work, communicate, and stay organized. Welcome to a new era of productivity and convenience with AppSus!</p>
