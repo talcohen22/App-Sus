@@ -1,14 +1,16 @@
 const { useState } = React
 
-export function NoteTodos({ note }) {
+export function NoteTodos({ note, onSaveTodo }) {
     const { info, title } = note
     const { todos } = info
     const [todosState, setTodosState] = useState(todos)
 
     function handleClickTodo(index) {
         const updatedTodos = [...todosState]
-        updatedTodos[index].done = !updatedTodos[index].done
+        const currentTodo = updatedTodos[index]
+        currentTodo.doneAt = currentTodo.doneAt ? null : Date.now()
         setTodosState(updatedTodos)
+        onSaveTodo(updatedTodos, note.id)
     }
 
     return (
@@ -17,7 +19,7 @@ export function NoteTodos({ note }) {
             <ul className="todo-list-card">
                 {todosState.map((todo, index) => (
                     <li
-                        className={`todo-line ${todo.done ? 'line-through' : ''}`}
+                        className={`todo-line ${todo.doneAt !== null ? 'line-through' : ''}`}
                         key={index}
                         onClick={() => handleClickTodo(index)}>
                         {todo.txt}

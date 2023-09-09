@@ -1,6 +1,13 @@
 import { NoteCard } from '../cmps/NoteCard.jsx'
 
-export function NoteList({ notes, onPaletteButtonClick, onRemoveNote, onTogglePin }) {
+export function NoteList({
+    notes,
+    onPaletteButtonClick,
+    onRemoveNote,
+    onTogglePin,
+    onSaveTodo,
+    onEditNote,
+}) {
     if (!notes || !notes.length) return <div> loading.. </div>
 
     const pinnedNotes = notes.filter((note) => note.isPinned)
@@ -17,6 +24,8 @@ export function NoteList({ notes, onPaletteButtonClick, onRemoveNote, onTogglePi
                         onPaletteButtonClick={onPaletteButtonClick}
                         onRemoveNote={onRemoveNote}
                         onTogglePin={onTogglePin}
+                        onSaveTodo={onSaveTodo}
+                        onEditNote={onEditNote}
                     />
                 ))}
             </section>
@@ -29,6 +38,8 @@ export function NoteList({ notes, onPaletteButtonClick, onRemoveNote, onTogglePi
                         onPaletteButtonClick={onPaletteButtonClick}
                         onRemoveNote={onRemoveNote}
                         onTogglePin={onTogglePin}
+                        onSaveTodo={onSaveTodo}
+                        onEditNote={onEditNote}
                     />
                 ))}
             </section>

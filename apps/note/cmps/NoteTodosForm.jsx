@@ -2,10 +2,10 @@ const { useState } = React
 import { utilService } from '../../../services/util.service.js'
 
 export function NoteTodosForm({ onSaveNote, handleChange, noteEdit }) {
-    const [items, setItems] = useState([{ id: utilService.makeId(), isDone: false, txt: '' }])
+    const [items, setItems] = useState([{ id: utilService.makeId(), doneAt: null, txt: '' }])
 
     function handleAddItem() {
-        setItems([...items, { id: utilService.makeId(), isDone: false, txt: '' }])
+        setItems([...items, { id: utilService.makeId(), doneAt: null, txt: '' }])
     }
 
     function handleSubmit(ev) {
@@ -14,7 +14,7 @@ export function NoteTodosForm({ onSaveNote, handleChange, noteEdit }) {
         console.log('items', items)
         onSaveNote({
             title: noteEdit.title,
-            todos: items.map((item) => ({ id: item.id, isDone: item.isDone, txt: item.txt })),
+            todos: items.map((item) => ({ id: item.id, doneAt: item.doneAt, txt: item.txt })),
         })
     }
 

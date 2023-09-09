@@ -2,7 +2,7 @@ import { NoteTxt } from '../cmps/NoteTxt.jsx'
 import { NoteImg } from '../cmps/NoteImg.jsx'
 import { NoteTodos } from '../cmps/NoteTodos.jsx'
 
-export function NotePreview({ note }) {
+export function NotePreview({ note, onSaveTodo }) {
     const cmpType = note.type
     let noteComponent
 
@@ -14,7 +14,7 @@ export function NotePreview({ note }) {
             noteComponent = <NoteImg note={note} />
             break
         case 'NoteTodos':
-            noteComponent = <NoteTodos note={note} />
+            noteComponent = <NoteTodos note={note} onSaveTodo={onSaveTodo} />
             break
         default:
             noteComponent = null

@@ -1,8 +1,6 @@
 import { NoteList } from '../cmps/NoteList.jsx'
 import { noteService } from '../services/note.service.js'
 import { NoteEdit } from '../cmps/NoteEdit.jsx'
-import { NoteFilter } from '../cmps/NoteFilter.jsx'
-
 const { useState, useEffect } = React
 
 export function NoteIndex() {
@@ -14,14 +12,9 @@ export function NoteIndex() {
         noteService.query().then(setNotes)
     }, [])
 
-    useEffect(() => {
-        console.log('bgClr', bgClr, isPin)
-    }, [bgClr, isPin])
-
     function onSetNotes(note) {
-        console.log('note bitch', note)
         if (note.info.img !== '') note.type = 'NoteImg'
-        if (note.info.txt === Array) note.type = 'NoteTodos'
+        if (Array.isArray(note.info.txt)) note.type = 'NoteTodos'
 
         const { title, info } = note
         if (!title && !info.txt) return
@@ -33,12 +26,25 @@ export function NoteIndex() {
     }
 
     function onPaletteButtonClick(color, noteId) {
-        const note = notes.find((note) => note.id === noteId)
-        note.style.backgroundColor = color
-        noteService.save(note).then(() => {
-            noteService.query().then(setNotes)
-        })
-        setBgClr({ backgroundColor: color, noteId: noteId })
+        const noteIndex = notes.findIndex((note) => note.id === noteId)
+        const updatedNotes = [...notes]
+        updatedNotes[noteIndex] = {
+            ...updatedNotes[noteIndex],
+            style: {
+                ...updatedNotes[noteIndex].style,
+                backgroundColor: color,
+            },
+        }
+        noteService
+            .save(updatedNotes[noteIndex])
+            .then(() => noteService.query())
+            .then((updatedNotes) => {
+                setNotes(updatedNotes)
+                setBgClr({ backgroundColor: color, noteId: noteId })
+            })
+            .catch((error) => {
+                console.error('Error onPaletteButtonClick:', error)
+            })
     }
 
     function onRemoveNote(noteId) {
@@ -48,24 +54,52 @@ export function NoteIndex() {
     }
 
     function onTogglePin(noteId) {
-        const note = notes.find((note) => note.id === noteId)
-        note.isPinned = !note.isPinned
-        noteService.save(note).then(() => {
-            noteService.query().then(setNotes)
-        })
-        setIsPin(note.isPinned)
+        const noteIndex = notes.findIndex((note) => note.id === noteId)
+        const updatedNotes = [...notes]
+        updatedNotes[noteIndex] = {
+            ...updatedNotes[noteIndex],
+            isPinned: !updatedNotes[noteIndex].isPinned,
+        }
+        noteService
+            .save(updatedNotes[noteIndex])
+            .then(() => noteService.query())
+            .then((updatedNotes) => {
+                setNotes(updatedNotes)
+                setIsPin(updatedNotes[noteIndex].isPinned)
+            })
+            .catch((error) => {
+                console.error('Error onTogglePin', error)
+            })
     }
+
+    function onSaveTodo(updatedTodos, noteId) {
+        const noteIndex = notes.findIndex((note) => note.id === noteId)
+        const updatedNotes = [...notes]
+        updatedNotes[noteIndex] = {
+            ...updatedNotes[noteIndex],
+            info: { ...updatedNotes[noteIndex].info, todos: updatedTodos },
+        }
+        noteService
+            .save(updatedNotes[noteIndex])
+            .then(() => noteService.query())
+            .then(setNotes)
+            .catch((error) => {
+                console.error('Error onSaveTodo', error)
+            })
+    }
+
+    function onEditNote() {}
 
     return (
         <main className="note-main-layout">
             <NoteEdit onSetNotes={onSetNotes} />
-            {/* <NoteFilter />
-            <hr /> */}
             <NoteList
                 notes={notes}
                 onPaletteButtonClick={onPaletteButtonClick}
                 onRemoveNote={onRemoveNote}
                 onTogglePin={onTogglePin}
+                onSaveTodo={onSaveTodo}
+                onEditNote={onEditNote}
             />
         </main>
     )
