@@ -1,7 +1,7 @@
 const { useState } = React
 import { utilService } from '../../../services/util.service.js'
 
-export function NoteTodosForm({ onSaveNote, handleChange, noteEdit }) {
+export function NoteTodosForm({ onSaveNote, handleChange, noteInput }) {
     const [items, setItems] = useState([{ id: utilService.makeId(), doneAt: null, txt: '' }])
 
     function handleAddItem() {
@@ -13,7 +13,7 @@ export function NoteTodosForm({ onSaveNote, handleChange, noteEdit }) {
 
         console.log('items', items)
         onSaveNote({
-            title: noteEdit.title,
+            title: noteInput.title,
             todos: items.map((item) => ({ id: item.id, doneAt: item.doneAt, txt: item.txt })),
         })
     }
@@ -34,7 +34,7 @@ export function NoteTodosForm({ onSaveNote, handleChange, noteEdit }) {
                 onChange={handleChange}
                 type="text"
                 name="title"
-                value={noteEdit.title}
+                value={noteInput.title}
                 placeholder="Title"
             />
             <ul className="items-line">

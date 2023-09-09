@@ -1,5 +1,6 @@
 import { NoteList } from '../cmps/NoteList.jsx'
 import { noteService } from '../services/note.service.js'
+import { NoteInput } from '../cmps/NoteInput.jsx'
 import { NoteEdit } from '../cmps/NoteEdit.jsx'
 const { useState, useEffect } = React
 
@@ -7,6 +8,8 @@ export function NoteIndex() {
     const [notes, setNotes] = useState([])
     const [bgClr, setBgClr] = useState({ backgroundColor: '', noteId: '' })
     const [isPin, setIsPin] = useState()
+    const [isEdit, setIsEdit] = useState(false)
+    const [note, setNote] = useState(null)
 
     useEffect(() => {
         noteService.query().then(setNotes)
@@ -88,11 +91,20 @@ export function NoteIndex() {
             })
     }
 
-    function onEditNote() {}
+    function onEditNote(noteId) {
+        setIsEdit((prevIsEdit) => (prevIsEdit = true))
+
+        const note = notes.find((note) => note.id === noteId)
+        setNote(note)
+    }
+
+    function onCloseEditNote() {
+        setIsEdit((prevIsEdit) => (prevIsEdit = false))
+    }
 
     return (
         <main className="note-main-layout">
-            <NoteEdit onSetNotes={onSetNotes} />
+            <NoteInput onSetNotes={onSetNotes} />
             <NoteList
                 notes={notes}
                 onPaletteButtonClick={onPaletteButtonClick}
@@ -101,6 +113,18 @@ export function NoteIndex() {
                 onSaveTodo={onSaveTodo}
                 onEditNote={onEditNote}
             />
+            {isEdit && (
+                <NoteEdit
+                    note={note}
+                    notes={notes}
+                    onPaletteButtonClick={onPaletteButtonClick}
+                    onRemoveNote={onRemoveNote}
+                    onTogglePin={onTogglePin}
+                    onSaveTodo={onSaveTodo}
+                    onEditNote={onEditNote}
+                    onCloseEditNote={onCloseEditNote}
+                />
+            )}
         </main>
     )
 }

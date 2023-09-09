@@ -1,9 +1,9 @@
-export function NoteTxtForm({ onSaveNote, handleChange, noteEdit }) {
+export function NoteTxtForm({ onSaveNote, handleChange, noteInput }) {
     function handleSubmit(ev) {
         ev.preventDefault()
         onSaveNote({
-            title: noteEdit.title,
-            text: noteEdit.info.txt,
+            title: noteInput.title,
+            text: noteInput.info.txt,
         })
     }
 
@@ -19,7 +19,7 @@ export function NoteTxtForm({ onSaveNote, handleChange, noteEdit }) {
                 onChange={handleChange}
                 type="text"
                 name="title"
-                value={noteEdit.title}
+                value={noteInput.title}
                 id="title"
                 placeholder="Title"
             />
@@ -32,7 +32,7 @@ export function NoteTxtForm({ onSaveNote, handleChange, noteEdit }) {
                 type="text"
                 name="txt"
                 id="text"
-                value={noteEdit.info.txt}
+                value={noteInput.info.txt}
                 placeholder="Write note..."
                 style={{ resize: 'none' }}
             />

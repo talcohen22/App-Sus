@@ -3,6 +3,10 @@ img {
     border-radius: 7px 7px 0 0;
 }
 
+.note-main-layout {
+    font-family: sans-serif;
+}
+
 .note-card {
     border-radius: 8px;
     padding: 0;
