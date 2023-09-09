@@ -1,4 +1,8 @@
 /* note list */
+
+* {
+    font-family: 'google-sans';
+}
 .note-card {
     break-inside: avoid;
     break-inside: avoid-column;
@@ -34,4 +38,8 @@
 .title-note-list {
     font-size: 0.625rem;
     margin-inline-start: 10px;
+}
+
+.line-through {
+    text-decoration: line-through;
 }

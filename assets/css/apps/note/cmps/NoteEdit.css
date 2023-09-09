@@ -106,3 +106,19 @@
 .btn-add-line {
     margin-left: 1rem;
 }
+
+.todo-list-card {
+    padding: 0 10px;
+}
+
+.todo-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9375em;
+    cursor: pointer;
+}
+.check-box-todo {
+    border: black;
+    color: black;
+    background-color: transparent;
+}
