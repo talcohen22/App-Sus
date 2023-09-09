@@ -16,8 +16,22 @@
     padding-left: 10px;
 }
 
+.note-card:hover {
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
 .note-context {
     padding: 0%;
+}
+
+.note-card .note-btns {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.note-card:hover .note-btns {
+    opacity: 1;
 }
 
 .note-btns .btn {
