@@ -1,5 +1,5 @@
 .mail-details-bgc {
-    background-color: #eef3fa;
+    background-color: var(--mainClrGray);
     min-height: calc(100vh - 80px);
 }
 

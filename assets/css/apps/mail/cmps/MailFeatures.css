@@ -6,7 +6,7 @@
 
     background-color: var(--mainClrGray);
     width: 150px;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 135px);
     padding-inline: 10px;
 }
 
@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: inherit;
+    width: 100%;
     box-sizing: border-box;
     padding: 5px;
     padding-inline-end: 15px;
@@ -44,8 +44,9 @@
     position: absolute;
     bottom: 10px;
     right: 0px;
-    width: 14px;
+    width: 19px;
     text-align: center;
+    font-size: 12px;
 }
 
 .features div {

@@ -3,7 +3,7 @@ import { MailPreview } from './MailPreview.jsx'
 
 export function MailList({ emails, filterBy, markMail }) {
     return (
-        <React.Fragment>
+        <div className='table-container'>
             <table className="mails-container">
                 <tbody >
                     {emails.map(email =>
@@ -11,6 +11,6 @@ export function MailList({ emails, filterBy, markMail }) {
                     )}
                 </tbody>
             </table>
-        </React.Fragment >
+        </div >
     )
 }
