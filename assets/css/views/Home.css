@@ -13,10 +13,6 @@
 }
 
 .home-img {
-    width: 60vw;
+    width: 35vw;
     animation: fadeInUp 4s;
 }
-
-/* @keyframes moveImg {
-    from: ;
-} */
