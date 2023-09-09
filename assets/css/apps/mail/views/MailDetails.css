@@ -14,8 +14,12 @@
         'btns        btns';
     background-color: white;
     border-radius: 30px;
-    width: calc(100% - 50px);
+    max-width: 80vw;
+    /* width: calc(100% - 200px); */
     margin: auto;
+    /* margin-inline: 50px; */
+    padding: 30px 30px 10px 20px;
+    justify-content: left;
 }
 
 .mail-details-container h1 {
@@ -29,6 +33,7 @@
 
 .mail-details-container .mail-body {
     grid-column: 2/-1;
+    max-width: 900px;
 }
 
 .mail-details-container .replay-forward-btn {

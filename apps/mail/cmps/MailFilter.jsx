@@ -1,7 +1,7 @@
 const { useNavigate, useParams } = ReactRouterDOM
 const { useState , useRef} = React
 
-export function MailFilter({ onSetFilterBy }) {
+export function MailFilter({ onSetFilterBy, toggleMenu }) {
 
     let isShowUnread = useRef(false)
     const [searchKeyState, setSearchKeyState] = useState(null)
@@ -25,6 +25,7 @@ export function MailFilter({ onSetFilterBy }) {
 
     return (
         <section className="mail-filter">
+            <button className="btn-toggle-menu" onClick={toggleMenu}>☰</button>
             <form action="" className="filter-by-form" onSubmit={onSubmitSearch}>
                 <div className="search-mail-container">
                     <label htmlFor=""><i className="fa-solid fa-magnifying-glass"></i></label>
@@ -33,6 +34,13 @@ export function MailFilter({ onSetFilterBy }) {
                 <div className="unread-msg-filter">
                     <label htmlFor="" >{isShowUnread.current ? 'Show all messages' : 'Show unread messages'}</label>
                     <input type="checkbox" name="isShowUnread" onChange={onSetIsShowUnread} />
+                </div>
+                <div className="sort-by">
+                    <select name="" id="">
+                        <option value="">Sort By</option>
+                        <option value="subject">Subject</option>
+                        <option value="date">Date</option>
+                    </select>
                 </div>
             </form>
         </section>

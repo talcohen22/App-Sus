@@ -3,8 +3,6 @@
     bottom: 0;
     right: 20px;
     box-shadow: 0px 0px 7px 0px;
-    /* height: 340px;
-    width: 440px; */
     height: 65vh;
     width: 50vw;
     background-color: white;
@@ -14,8 +12,13 @@
     display: flex
 }
 
+.new-message-container form{
+    height: 100%;
+}
+
 .new-message-container form div input{
     flex-grow: 1;
+    width: 100%;
 }
 
 .new-message-container form div input:focus{
@@ -26,8 +29,8 @@
     box-sizing: border-box;
     padding: 10px;
     resize: none;
-    width: 435px;
-    height: 240px;
+    width: 100%;
+    height: calc(100% - 98px);
 }
 
 .new-message-container textarea:focus{
