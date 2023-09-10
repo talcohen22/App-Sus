@@ -38,14 +38,6 @@ To get started with the Note App, follow these steps:
 
 5. **Delete a Note:** Click on the trash can icon to delete a note that you no longer need.
 
-## Contributing
-
-Contributions to the Note App are welcome! Feel free to submit bug reports, feature requests, or even pull requests to help improve the app.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ---
 
 Feel free to customize this README to include specific installation instructions or additional details about your Note App.
