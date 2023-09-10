@@ -9,4 +9,7 @@
 .home-img {
     max-width: 30%;
     animation: fadeInUp 4s;
+    display: flex;
+    justify-self: center;
+    align-items: center;
 }
