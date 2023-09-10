@@ -7,9 +7,6 @@
 }
 
 .home-img {
-    max-width: 30%;
+    width: 35vw;
     animation: fadeInUp 4s;
-    display: flex;
-    justify-self: center;
-    align-items: center;
 }
