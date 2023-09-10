@@ -18,14 +18,14 @@ export function About() {
             <h2 className="team-header">Our incredible team: </h2>
             <div className="team">
                 <div className="member member1">
-                    <img className="stav-img" src="../assets/img/stav.jpeg" alt="" />
+                    <img className="stav-img" src="./assets/img/stav.jpeg" alt="stav-img" />
                     <p className="stav-description">
                         Stav Cohen <br />
                         Front-End Developer
                     </p>
                 </div>
                 <div className="member member2">
-                    <img className="tal-img" src="../assets/img/tal.jpeg" alt="" />
+                    <img className="tal-img" src="./assets/img/tal.jpeg" alt="tal-img" />
                     <p className="tal-description">
                         Tal Cohen <br />
                         Back-End Developer

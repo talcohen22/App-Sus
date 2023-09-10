@@ -39,13 +39,13 @@
 }
 
 .note-pinned {
-    columns: 240px;
+    columns: 200px;
     column-gap: 15px;
 
     margin-bottom: 90px;
 }
 .note-unpinned {
-    columns: 240px;
+    columns: 200px;
     column-gap: 15px;
 }
 
