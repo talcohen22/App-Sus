@@ -1,12 +1,12 @@
 .home {
-    height: calc(100vh - 65px) !important;
-    width: 100vw !important;
+    height: calc(100vh - 65px);
+    width: 100vw;
     background-color: #fdf7df;
-    display: grid !important;
-    place-content: center !important;
+    display: grid;
+    place-content: center;
 }
 
 .home-img {
-    width: 300px !important;
+    max-width: 30%;
     animation: fadeInUp 4s;
 }
